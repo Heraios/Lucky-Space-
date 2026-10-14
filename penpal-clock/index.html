@@ -70,7 +70,7 @@ header { display: grid; gap: 18px; }
 .field label { font-size: 12px; color: var(--ink-3); font-family: var(--f-data); letter-spacing: .06em; text-transform: uppercase; }
 input, select, button { font: inherit; color: var(--ink); }
 input[type=number], input[type=time], select { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 7px 9px; font-family: var(--f-data); font-size: 15px; }
-#year { width: 6.2em; } #day { width: 4em; } #lon { width: 5.5em; } #replyMin { width: 5em; }
+#year { width: 6.2em; } #day { width: 4em; } #lon { width: 5.5em; } #replyMin { width: 5em; } #tubeOff { width: 5.5em; }
 button { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
 button:hover { border-color: var(--ink-3); }
 :focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
@@ -177,6 +177,7 @@ details summary { cursor: pointer; color: var(--ink); font-weight: 700; }
       <div class="field"><label>Kahlun's hemisphere</label>
         <div class="seg" id="hemi"><button type="button" data-h="N" aria-pressed="false">North</button><button type="button" data-h="S" aria-pressed="true">South</button></div>
       </div>
+      <div class="field"><label for="tubeOff">Tube clock vs Earth (h)</label><input id="tubeOff" type="number" min="-12" max="12" step="0.5" value="-9"></div>
     </div>
     <p class="warnline" id="rangeWarn" hidden>The calculations cover AD 16000–16100. Dates outside that are clamped.</p>
   </header>
@@ -203,7 +204,7 @@ details summary { cursor: pointer; color: var(--ink); font-weight: 700; }
       </div>
       <div class="end g">
         <div class="who"><span class="dot g"></span><h2>Grafin</h2></div>
-        <p class="where">The Tube, Pluto–Charon · sun over the Tube's Pluto end</p>
+        <p class="where">The Tube, Pluto–Charon · Tube clock</p>
         <div class="clock" id="gClock">—</div>
         <dl class="kv" id="gKv"></dl>
       </div>
@@ -261,7 +262,8 @@ details summary { cursor: pointer; color: var(--ink); font-weight: 700; }
         <p>Planet positions come from an N-body simulation of the Sun, the eight planets and Pluto, started from NASA JPL's DE421 ephemeris for the year 2000 and run forward 14,000 years. Checked against DE421 over 1900–2050, the method is accurate to a few thousand km. Over 14,000 years small errors grow, so treat dates as good to within a few days: fine for fiction, not for mission planning.</p>
         <p>Mars seasons account for the slow wobble of Mars's spin axis (about 7.6 arcseconds a year). Over 14,000 years it has moved Mars's closest approach to the Sun from late northern autumn today to late northern winter, so season lengths in the 161st century differ from today's. The calculation reproduces today's real Mars Year 36 start (7 February 2021) to within hours.</p>
         <p>Mars Year numbers follow the scientific count that started with Mars Year 1 on 11 April 1955. Mars time uses the mean solar day of 24 h 39 m 35 s. Local time ignores the equation of time, which can shift sundial time by up to about 50 minutes.</p>
-        <p>The Tube's sun-time assumes the Tube's Pluto end is at the point directly under Charon, which by convention is Pluto's 0° longitude. Over 14,000 years even a tiny error in Pluto's day length adds up, so the exact hour is a best guess. The six-day rhythm of day and night is real. Pluto's season uses its present axis tilt of about 120°.</p>
+        <p>The Tube keeps its own 24-hour clock under artificial lights. The setting "Tube clock vs Earth" says how many hours it runs ahead of or behind Earth time. At −9 hours, Grafin's 20:30 messages reach Kahlun's breakfast about fourteen hours later, and Kahlun's evening replies reach Grafin around 07:40 the next morning, as in the first two chapters.</p>
+        <p>The real Sun's position over the Tube assumes the Tube's Pluto end is at the point directly under Charon, which by convention is Pluto's 0° longitude. Over 14,000 years even a tiny error in Pluto's day length adds up, so the exact hour is a best guess. The six-day rhythm of day and night is real. Pluto's season uses its present axis tilt of about 120°.</p>
         <p>A blackout is flagged when the radio path passes within 10 solar radii of the Sun. That is roughly when today's Mars missions lose contact with Earth. A relay off to one side of the Sun would get around it, if the culture has one.</p>
         <p>Earth dates are on the proleptic Gregorian calendar in Terrestrial Time. By 16008, Earth's slowing spin means clock time and astronomical time drift apart by roughly a week, so in-world calendars may have been reformed.</p>
       </div>
@@ -433,7 +435,8 @@ const partOfDay = h => h < 5 ? "night" : h < 7 ? "dawn" : h < 12 ? "morning" : h
 const $ = id => document.getElementById(id);
 const store = { get(k, d) { try { const v = localStorage.getItem("ppc." + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
                 set(k, v) { try { localStorage.setItem("ppc." + k, JSON.stringify(v)); } catch {} } };
-const S = { jd: store.get("jd", jdFromParts(16008, 3, 29, 12, 0)), lon: store.get("lon", 70), hemi: store.get("hemi", "S"), dir: store.get("dir", "KG"), reply: store.get("reply", 20) };
+const S = { jd: store.get("jd", jdFromParts(16008, 3, 29, 12, 0)), lon: store.get("lon", 70), hemi: store.get("hemi", "S"), dir: store.get("dir", "KG"), reply: store.get("reply", 20), tubeOff: store.get("tubeOff", -9) };
+const tubeClock = jd => ((((jd - 0.5) % 1) * 24 + S.tubeOff) % 24 + 24) % 24;
 let yearCache = null;
 
 MONTHS.forEach((m, i) => { const o = document.createElement("option"); o.value = i; o.textContent = m; $("month").appendChild(o); });
@@ -442,7 +445,7 @@ function syncInputs() {
   const d = dateOf(S.jd);
   $("year").value = d.getUTCFullYear(); $("month").value = d.getUTCMonth(); $("day").value = d.getUTCDate();
   $("time").value = `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
-  $("lon").value = S.lon; $("replyMin").value = S.reply;
+  $("lon").value = S.lon; $("replyMin").value = S.reply; $("tubeOff").value = S.tubeOff;
   document.querySelectorAll("#hemi button").forEach(b => b.setAttribute("aria-pressed", b.dataset.h === S.hemi));
   document.querySelectorAll("#dir button").forEach(b => b.setAttribute("aria-pressed", b.dataset.d === S.dir));
 }
@@ -503,9 +506,10 @@ function render() {
   const up = T.lst >= 6 && T.lst < 18;
   const eclipseSeason = Math.abs(T.subsolarLat) < 5.3;
   const plutoSeason = Math.abs(T.subsolarLat) < 10 ? "near equinox" : `${T.subsolarLat > 0 ? "north" : "south"} pole sunward`;
-  $("gClock").textContent = fmtHours(T.lst);
+  $("gClock").textContent = fmtHours(tubeClock(jd));
   $("gKv").innerHTML = kv([
-    ["Sun over the Tube", up ? `up · sets in ${fmtDur(toSunset)}` : `down · rises in ${fmtDur(toSunrise)}`],
+    ["Time of day", partOfDay(tubeClock(jd))],
+    ["Real Sun over the Tube", up ? `up · sets in ${fmtDur(toSunset)}` : `down · rises in ${fmtDur(toSunrise)}`],
     ["Pluto day", `${(PLUTO_DAY * 24).toFixed(1)} Earth hours`],
     ["Pluto season", `${plutoSeason} (sun over ${Math.abs(T.subsolarLat).toFixed(0)}°${T.subsolarLat >= 0 ? "N" : "S"})`],
     ["Charon eclipses", eclipseSeason ? "in season: Charon blocks the noon Sun" : "not in season"],
@@ -520,7 +524,7 @@ function render() {
 function renderPlanner(jd) {
   const from = S.dir === "KG" ? "K" : "G";
   const sendName = from === "K" ? "Kahlun" : "Grafin", recvName = from === "K" ? "Grafin" : "Kahlun";
-  const localStr = (t, who) => who === "K" ? `${fmtHours(marsLocal(t, S.lon).lmst)} Mars time` : `${fmtHours(tubeSun(t).lst)} Tube sun-time`;
+  const localStr = (t, who) => who === "K" ? `${fmtHours(marsLocal(t, S.lon).lmst)} Mars time` : `${fmtHours(tubeClock(t))} Tube time`;
   const t1 = arrival(jd, from);
   const t2 = t1 + S.reply / 1440;
   const t3 = arrival(t2, from === "K" ? "G" : "K");
@@ -700,6 +704,7 @@ function drawWheel(Ls) {
 ["year", "month", "day", "time"].forEach(id => $(id).addEventListener("change", readInputs));
 document.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click", () => setJd(S.jd + Number(b.dataset.step))));
 $("lon").addEventListener("change", () => { const v = parseFloat($("lon").value); if (!Number.isNaN(v)) { S.lon = v; store.set("lon", v); render(); } });
+$("tubeOff").addEventListener("change", () => { const v = parseFloat($("tubeOff").value); if (!Number.isNaN(v)) { S.tubeOff = v; store.set("tubeOff", v); render(); } });
 $("replyMin").addEventListener("change", () => { const v = parseFloat($("replyMin").value); if (!Number.isNaN(v) && v >= 0) { S.reply = v; store.set("reply", v); renderPlanner(S.jd); } });
 document.querySelectorAll("#hemi button").forEach(b => b.addEventListener("click", () => { S.hemi = b.dataset.h; store.set("hemi", S.hemi); syncInputs(); render(); }));
 document.querySelectorAll("#dir button").forEach(b => b.addEventListener("click", () => { S.dir = b.dataset.d; store.set("dir", S.dir); syncInputs(); renderPlanner(S.jd); }));

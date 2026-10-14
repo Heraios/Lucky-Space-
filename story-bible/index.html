@@ -100,6 +100,11 @@ main { min-width: 0; display: grid; gap: 22px; }
 .flag.minor, .flag.typo { background: var(--minor-wash); } .flag.minor .sev, .flag.typo .sev { color: var(--minor); }
 .flag.question { background: var(--question-wash); } .flag.question .sev { color: var(--question); }
 @media (max-width: 520px) { .flag { grid-template-columns: 1fr; } .flag .sev { grid-row: auto; } }
+ol.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+ol.timeline li { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 12px; padding: 8px 0; border-top: 1px solid var(--rule); font-size: 15px; }
+ol.timeline li:first-child { border-top: 0; }
+ol.timeline .tw { font-family: var(--f-data); font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; padding-top: 1px; }
+@media (max-width: 520px) { ol.timeline li { grid-template-columns: 1fr; gap: 2px; } }
 ol.qs { margin: 0; padding-left: 22px; display: grid; gap: 8px; max-width: 72ch; }
 
 .results { display: grid; gap: 4px; }
@@ -193,6 +198,10 @@ function renderHome() {
     <section class="panel" style="display:grid;gap:12px">
       <h3>Chapters</h3>
       ${B.chapters.map(c => `<div class="chapter"><b>${esc(c.title)}</b><span class="meta">Point of view: ${rich(`[[${c.pov}]]`)}${c.when ? ` · ${esc(c.when)}` : ""}</span><p style="max-width:70ch">${rich(c.summary)}</p></div>`).join("")}
+    </section>
+    <section class="panel" style="display:grid;gap:12px">
+      <h3>Timeline</h3>
+      <ol class="timeline">${(B.timeline || []).map(t => `<li><span class="tw">${esc(t.when)}</span><span>${rich(t.text)}</span></li>`).join("")}</ol>
     </section>
     <section class="panel" style="display:grid;gap:12px">
       <div><h3>Continuity notes</h3><p class="muted" style="margin-top:6px;font-size:15px">Places where the text disagrees with itself or with the physics. Yours to decide; some may be intentional.</p></div>

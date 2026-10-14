@@ -4,9 +4,9 @@
 window.BIBLE = {
   updated: "Kahlun I",
   chapters: [
-    { id: "grafin-1", title: "Grafin I", pov: "grafin", when: "Day 1",
+    { id: "grafin-1", title: "Grafin I", pov: "grafin", when: "29 April 16008 (Earth date)",
       summary: "One school day in [[the-tube|The Tube]]: breakfast with his dads, a run-in with [[dekker]], a session with [[miran|Counselor Miran]], and a breakthrough on his [[wish-sculpture]] in [[kath|Teacher Kath]]'s art class." },
-    { id: "kahlun-1", title: "Kahlun I", pov: "kahlun", when: "Day 2 (Miran's interview was \"yesterday\")",
+    { id: "kahlun-1", title: "Kahlun I", pov: "kahlun", when: "30 April 16008 (Earth date) · Mars Year 7,472, sol 381",
       summary: "After four days of rain on the [[hellas-coast|Hellas coast]], Kahlun dresses in his ancestors' bones, reads Grafin's messages over [[long-pork|dumplings]] made from [[juliandra|Mama Juli]], and is sent into the [[thornwatch]]. He talks [[ramba]] down from a sensory overload, shares half a dumpling with him, and writes Grafin a long reply about grief." }
   ],
 
@@ -246,7 +246,8 @@ window.BIBLE = {
         "Joked about writing poems to secure alliances, for example matching Kahlun with [[merschal]].",
         "Brought home a Venusian hydroponic pepper the family still rations. The house used to burn his Venusian clove-and-cinnamon incense; nobody can bear the smell now.",
         "His body is carbon dust in Venus's atmosphere. His plinth in the [[ossuary]] is carved redwood inlaid with his Venusian house's crest, and will always be empty.",
-        "Never met Yet'tia and didn't know the bone orientations; Kahlun believes he would have learned."
+        "Never met Yet'tia and didn't know the bone orientations; Kahlun believes he would have learned.",
+        "Died about 19 January 16007 (one Standard year, three months and eleven days before Kahlun I)."
       ]]] },
 
     { id: "orivante", cat: "mars-people", name: "Uncle Orivante (Ori)", tag: "Voli's brother · Venusian knight", src: ["kahlun-1"],
@@ -327,7 +328,8 @@ window.BIBLE = {
           "Maglev trains: a school train and a separate line toward the Hound station.",
           "Agricultural sections supply small luxuries such as real eggs from live chickens.",
           "Climate is run in turn by the [[six-gods|Six Gods]]; on Days 1 and 2 the [[father-of-riches]] is \"doing winter.\"",
-          "Most children arrive through the [[birth-lottery]]. Clocks run on a 24-hour day.",
+          "Most children arrive through the [[birth-lottery]]. Clocks run on a 24-hour day; to match the message timing in the chapters, the Tube's clock runs about 9 hours behind Earth time (an assumption, yours to confirm).",
+          "On 29 April 16008 the real Sun is 44.9 AU away and Pluto's south pole is tilted toward it (sun overhead at 39°S).",
           "Plutonians have buried their dead for at least 3,000 years (see [[dead-groves]])."
         ]],
         ["Places in it", ["[[katabasii-complex]], [[lasdannen-home|the Lasdannen apartment]], [[dead-groves]], a Hound station, hydroponics bays."]]
@@ -374,7 +376,8 @@ window.BIBLE = {
         "Every child is expected to hunt and forage. Children walking in forests spread the [[symbiote]] that binds topsoil to regolith.",
         "Places named: [[hellas-coast]], [[thornwatch]], Tharsis (Duster cattle-herder tribes), the Eastern concert circuit, a sea-spaceport.",
         "Minority subcultures in school texts: Necrophages, Wildkin, Senyarists, Purifiers. Tourists come from Ceres.",
-        "Seasons, distance and local time: see the [[penpal-clock|Penpal Clock]]. The Hellas coast is in the southern hemisphere."
+        "On 30 April 16008: Mars Year 7,472, sol 381, solar longitude 194°. Southern spring began on 28 March 16008, so the Hellas coast is about a month into spring; southern summer starts 8 September 16008 by Earth dates.",
+        "In this era Mars is closest to the Sun in late northern winter, which makes southern summers short and hot. Seasons, distance and local time: see the [[penpal-clock|Penpal Clock]]."
       ]]] },
 
     { id: "hellas-coast", cat: "places", name: "The Hellas coast and Kahlun's village", tag: "Kahlun's home", src: ["kahlun-1"],
@@ -593,7 +596,8 @@ window.BIBLE = {
       sections: [["So far", [
         "Messages travel as laser bursts through [[il-exchange|Intersolar League]] relay stations in the Belt; messages \"come when they come.\"",
         "Kahlun I: messages arrive \"about fourteen hours\" after sending, depending on orbits and whether the relays are running clean. Both chapters say \"ten light-hours\".",
-        "The [[penpal-clock|Penpal Clock]] gives about 6½ light-hours in 16008. Relay queues could explain the rest (see continuity notes).",
+        "On 29–30 April 16008 the light time is 6 h 26 m one way (46.5 AU). With the Tube's clock 9 hours behind Earth time, Grafin's 20:30 messages reach Kahlun at about 22:30 Mars time and are read at breakfast, about fourteen hours after sending. Kahlun's 20:15 reply reaches Grafin at about 07:40 the next morning. Both match the chapters.",
+        "The delay barely changes through this Mars year: 6 h 03 m to 6 h 27 m. No solar blackouts until 16023.",
         "Tags: KLB (Kahlun Blazatrama), GL (Grafin Lasdannen), H of QT (Herelty)."
       ]]] },
     { id: "il-exchange", cat: "tech", name: "Intersolar League & IL Exchange", tag: "How Grafin met Kahlun", src: ["grafin-1", "kahlun-1"],
@@ -609,6 +613,24 @@ window.BIBLE = {
       sections: [["Link", ["Light lag, local times and Mars seasons for any date in AD 16000–16100: <a href=\"https://claude.ai/artifact/ThUKFcEBJQsFtVyVt1bugh\" target=\"_blank\" rel=\"noopener\">open the Penpal Clock</a>. It now defaults to Kahlun on the Hellas coast (southern hemisphere)."]]] }
   ],
 
+  timeline: [
+    { when: "about 15957", text: "Kahlun's sisters [[yenna-yamie|Yenna and Yamie]] die, forty years before he is born." },
+    { when: "about 15968", text: "The last [[jovian-raids|Jovian raid]] on Mars. [[merschal]]'s moms later marry a rehabilitated slave-soldier. Juliandra's scar dates from a recovery operation the same year." },
+    { when: "about 15997", text: "[[grafin]] and [[kahlun]] are born." },
+    { when: "about 16004", text: "Kahlun, age 7, has his hip bones replaced to walk on Venus. [[orivante|Uncle Ori]] stays eight months." },
+    { when: "about 16006", text: "Grafin and Kahlun start writing through the [[il-exchange|IL Exchange]], age nine." },
+    { when: "19 January 16007", text: "[[voli]] dies. (One Standard year, three months and eleven days before Kahlun I.)" },
+    { when: "early 16007", text: "A tree kills [[ramba]]'s first body, a few months after Voli; his time in simulation is about 400 days before Kahlun I." },
+    { when: "mid 16007", text: "Grafin first mentions [[miran|Counselor Miran]] to Kahlun (ten or eleven months before Kahlun I)." },
+    { when: "28 March 16008", text: "Southern spring begins on Mars (Ls 180°)." },
+    { when: "26 April 16008", text: "Four days of rain begin on the [[hellas-coast|Hellas coast]] (\"since Third-day\")." },
+    { when: "29 April 16008", text: "Grafin I. Light lag 6 h 26 m." },
+    { when: "30 April 16008", text: "Kahlun I. The rain breaks at 04:00 Mars time. Kahlun's long reply reaches Grafin about 07:40 Tube time on 1 May." },
+    { when: "later in 16008", text: "Uncle Ori might visit, \"if the schedules hold.\" Gabr'yel's parents return in Dry-spring." },
+    { when: "8 September 16008", text: "Southern summer begins on Mars." },
+    { when: "16023–16031", text: "Mars–Pluto signals pass behind the Sun once each Mars year: about a week of blackout each time." }
+  ],
+
   continuity: [
     // --- across chapters ---
     { sev: "check", title: "Grafin's messages don't match Grafin I", where: "Kahlun I · 05:55 and 06:30 vs Grafin I",
@@ -618,7 +640,7 @@ window.BIBLE = {
     { sev: "check", title: "Captain Vex after episode 47", where: "Comet Force",
       text: "Grafin I: Vex sacrifices herself in episode 47's bridge scene. Kahlun I: in episode 51 Vex doesn't tell the Engineer about the relay \"before she went into the bridge.\" Is 51 a flashback, or is 47 a different sacrifice?" },
     { sev: "check", title: "Light lag: ten light-hours and fourteen hours", where: "Grafin I · 13:00 · Kahlun I · 05:55 and 20:15",
-      text: "Both chapters say ten light-hours, and Kahlun I says messages arrive about fourteen hours after sending. In 16008 the light time is about 6 h 26 m, and never above about 6 h 42 m that century. Keep \"fourteen hours\" and blame the Belt relays (store-and-forward queues are realistic), but change \"ten light-hours\" to about six." },
+      text: "Both chapters say ten light-hours, and Kahlun I says messages arrive about fourteen hours after sending. In 16008 the light time is about 6 h 26 m, and never above about 6 h 42 m that century. \"Fourteen hours\" works as written: with the Tube clock 9 hours behind Earth, a 20:30 message from Grafin lands late in Kahlun's evening and is read at breakfast about 14 hours after sending. Only \"ten light-hours\" needs changing, to about six." },
     { sev: "check", title: "Venus is never 40 million km from Mars", where: "Kahlun I · 05:30",
       text: "\"His father is dust in Venus' atmosphere, forty million kilometers away.\" Mars and Venus are never closer than about 98 million km and can be 358 million apart; the average is about 240 million." },
     // --- within Kahlun I ---
@@ -634,15 +656,13 @@ window.BIBLE = {
       text: "He dresses over a pale rose and grey-lavender robe; outdoors the bones sit over a pastel-blue undersuit. A changing moment could go between." },
     { sev: "minor", title: "Juliandra awake and asleep", where: "Kahlun I · 20:15",
       text: "\"Mother Juliandra is awake; … has gone to bed early.\" Probably \"was awake\". Also the only \"Mother\" rather than \"Mama\"." },
-    { sev: "minor", title: "Seasons on the Hellas coast", where: "Kahlun I",
-      text: "Hellas is in Mars's southern hemisphere. If Kahlun I is set close to 29 April 16008, the Penpal Clock gives southern spring (Ls 194°), with the wet season giving way to \"Dry-spring.\" Worth deciding the date so the seasons stay consistent." },
     // --- Grafin I ---
     { sev: "check", title: "Graugrey's hair colour", where: "Grafin I · 06:05 vs 17:30",
       text: "Breakfast says he's blond. At 17:30 he has \"a streak of dirt in his white hair.\"" },
     { sev: "minor", title: "Length of maths class", where: "Grafin I · 08:00",
       text: "Twelve minutes of work plus \"forty-eight minutes\" implies a 60-minute class, but the break isn't until 09:30." },
     { sev: "minor", title: "Distance to the Sun", where: "Grafin I · 07:00",
-      text: "\"The real sun is 40 AU away.\" On 29 April 16008 Pluto is 44.9 AU from the Sun." },
+      text: "\"The real sun is 40 AU away.\" On 29 April 16008 Pluto is 44.9 AU from the Sun. \"Forty-five\" would be exact." },
     { sev: "question", title: "Hound jacket before joining", where: "Grafin I · 06:45",
       text: "Grafin wears \"his Hound uniform jacket\" while only \"considering joining the Hounds.\" Fine if school uniforms come in order cuts anyone can wear." },
     { sev: "question", title: "Heights", where: "Grafin I · 06:05 vs 17:30",
@@ -655,7 +675,6 @@ window.BIBLE = {
   ],
 
   questions: [
-    "What is the in-world date of Grafin I and Kahlun I? (Kahlun I is the day after.) The Penpal Clock can then show the seasons and lag for both.",
     "What is Quiet-Temple, and is Herelty in care?",
     "What is The Dreamer?",
     "Which of the Six Gods does each Tube order belong to? Is \"Katabasii\" also an order?",
@@ -664,7 +683,7 @@ window.BIBLE = {
     "How do God-Shall-Be-Built, the Mortuary Cult and the Sadistic-Dialectic fit together: one religion with schools, or separate ones?",
     "Who is the Senyara, and how do Senyarists relate to her?",
     "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
-    "How does the Tube's 24-hour clock relate to Pluto's 6.4-day real day?",
+    "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
     "What is ENTITY-Judgment?",
     "How old are Tramso, Graugrey, Gratiustar and Juliandra?",
     "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately."
