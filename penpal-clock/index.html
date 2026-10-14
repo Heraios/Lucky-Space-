@@ -1,0 +1,710 @@
+<title>Penpal Clock</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one column "instrument panel". Two correspondents face each other across a signal line;
+   everything below is read from that line's point of view. Rust = Kahlun / Mars, ice = Grafin / The Tube. */
+:root {
+  --bg: #eef1f6;
+  --panel: #ffffff;
+  --ink: #141a26;
+  --ink-2: #4a5468;
+  --ink-3: #7a8396;
+  --rule: #d8dde7;
+  --grid: #e6e9f0;
+  --mars: #B4532A;
+  --mars-wash: rgba(180, 83, 42, .10);
+  --ice: #2A7FA8;
+  --ice-wash: rgba(42, 127, 168, .10);
+  --warn: #9a6400;
+  --warn-wash: rgba(214, 150, 20, .16);
+  --crit: #b3261e;
+  --crit-wash: rgba(179, 38, 30, .13);
+  --s1: rgba(96, 160, 90, .13);   /* spring */
+  --s2: rgba(222, 170, 40, .15);  /* summer */
+  --s3: rgba(200, 100, 50, .12);  /* autumn */
+  --s4: rgba(90, 120, 200, .12);  /* winter */
+  --f-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0b0f18; --panel: #131a27; --ink: #e8ecf4; --ink-2: #aab3c5; --ink-3: #7c869a;
+  --rule: #263045; --grid: #1d2536;
+  --mars: #D9703F; --mars-wash: rgba(217, 112, 63, .14); --ice: #2F9DCC; --ice-wash: rgba(47, 157, 204, .14);
+  --warn: #e3a93a; --warn-wash: rgba(227, 169, 58, .15); --crit: #f2776d; --crit-wash: rgba(242, 119, 109, .15);
+  --s1: rgba(110, 180, 100, .12); --s2: rgba(230, 180, 60, .11); --s3: rgba(220, 120, 70, .11); --s4: rgba(110, 140, 230, .13);
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0b0f18; --panel: #131a27; --ink: #e8ecf4; --ink-2: #aab3c5; --ink-3: #7c869a;
+  --rule: #263045; --grid: #1d2536;
+  --mars: #D9703F; --mars-wash: rgba(217, 112, 63, .14); --ice: #2F9DCC; --ice-wash: rgba(47, 157, 204, .14);
+  --warn: #e3a93a; --warn-wash: rgba(227, 169, 58, .15); --crit: #f2776d; --crit-wash: rgba(242, 119, 109, .15);
+  --s1: rgba(110, 180, 100, .12); --s2: rgba(230, 180, 60, .11); --s3: rgba(220, 120, 70, .11); --s4: rgba(110, 140, 230, .13);
+  color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 64px; }
+.wrap { max-width: 1040px; margin: 0 auto; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+h1 { font-size: clamp(30px, 6vw, 46px); font-weight: 800; line-height: 1; }
+h2 { font-size: 22px; font-weight: 700; }
+h3 { font-size: 15px; font-weight: 700; }
+p { margin: 0; }
+.eyebrow { font-family: var(--f-data); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.muted { color: var(--ink-2); }
+.small { font-size: 14px; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.panel { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 20px; min-width: 0; }
+section { display: grid; gap: 14px; min-width: 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+
+/* header + controls */
+header { display: grid; gap: 18px; }
+.title-row { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+.title-row p { max-width: 52ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; }
+.field { display: grid; gap: 4px; }
+.field label { font-size: 12px; color: var(--ink-3); font-family: var(--f-data); letter-spacing: .06em; text-transform: uppercase; }
+input, select, button { font: inherit; color: var(--ink); }
+input[type=number], input[type=time], select { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 7px 9px; font-family: var(--f-data); font-size: 15px; }
+#year { width: 6.2em; } #day { width: 4em; } #lon { width: 5.5em; } #replyMin { width: 5em; }
+button { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 7px 12px; cursor: pointer; }
+button:hover { border-color: var(--ink-3); }
+:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+.btn-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; border-radius: 0; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+
+/* the link: Kahlun <-> signal <-> Grafin */
+.link { display: grid; grid-template-columns: 1fr minmax(180px, 1.1fr) 1fr; gap: 0; align-items: stretch; }
+.end { padding: 20px; display: grid; gap: 10px; align-content: start; }
+.end.k { border-top: 4px solid var(--mars); }
+.end.g { border-top: 4px solid var(--ice); }
+.who { display: flex; align-items: center; gap: 10px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.dot.k { background: var(--mars); } .dot.g { background: var(--ice); }
+.who h2 { font-size: 24px; }
+.where { font-size: 14px; color: var(--ink-2); }
+.clock { font-family: var(--f-data); font-size: 30px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font-size: 14px; }
+.kv dt { color: var(--ink-3); }
+.kv dd { margin: 0; font-family: var(--f-data); font-variant-numeric: tabular-nums; min-width: 0; }
+.signal { display: grid; align-content: center; justify-items: center; text-align: center; gap: 6px; padding: 20px 10px; position: relative; }
+.signal .line { position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: linear-gradient(90deg, var(--mars), var(--ice)); opacity: .5; }
+.signal .pulse { position: absolute; top: calc(50% - 4px); width: 8px; height: 8px; border-radius: 50%; background: var(--ink); left: 0; animation: travel 6s linear infinite; opacity: .7; }
+@keyframes travel { from { left: 0; } to { left: calc(100% - 8px); } }
+@media (prefers-reduced-motion: reduce) { .signal .pulse { animation: none; left: calc(50% - 4px); } }
+.lagbox { position: relative; background: var(--panel); padding: 10px 14px; border-radius: 12px; border: 1px solid var(--rule); display: grid; gap: 2px; }
+.lag { font-family: var(--f-display); font-weight: 800; font-size: clamp(32px, 4.4vw, 46px); white-space: nowrap; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--rule); }
+.chip.ok { color: var(--ink-2); }
+.chip.warn { background: var(--warn-wash); color: var(--warn); border-color: transparent; }
+.chip.crit { background: var(--crit-wash); color: var(--crit); border-color: transparent; font-weight: 700; }
+.chip svg { width: 14px; height: 14px; }
+@media (max-width: 760px) {
+  .link { grid-template-columns: 1fr; }
+  .signal { padding: 18px 10px; }
+  .signal .line { left: 50%; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(180deg, var(--mars), var(--ice)); }
+  .signal .pulse { left: calc(50% - 4px); top: 0; animation: travelv 6s linear infinite; }
+  @keyframes travelv { from { top: 0; } to { top: calc(100% - 8px); } }
+}
+
+/* message planner */
+.planner { display: grid; gap: 16px; }
+.msg-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.step { border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.step.k { background: var(--mars-wash); border-color: transparent; }
+.step.g { background: var(--ice-wash); border-color: transparent; }
+.step .big { font-family: var(--f-data); font-weight: 600; font-size: 18px; font-variant-numeric: tabular-nums; }
+@media (max-width: 760px) { .msg-steps { grid-template-columns: 1fr; } }
+
+/* chart */
+.chart-wrap { position: relative; overflow-x: auto; }
+#chart { display: block; width: 100%; min-width: 620px; height: auto; }
+#chart text { font-family: var(--f-data); font-size: 11px; fill: var(--ink-3); }
+#chart .band-label { fill: var(--ink-2); font-size: 11px; }
+.tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; font-size: 13px; box-shadow: 0 4px 16px rgba(0,0,0,.12); white-space: nowrap; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 14px; height: 10px; border-radius: 2px; display: inline-block; border: 1px solid var(--rule); }
+
+/* seasons */
+.seasons { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 760px) { .seasons { grid-template-columns: 1fr; } }
+#wheel { width: 100%; max-width: 300px; height: auto; display: block; margin: 0 auto; }
+#wheel text { font-family: var(--f-data); fill: var(--ink-2); font-size: 11px; }
+.table-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 400; color: var(--ink-3); font-size: 12px; font-family: var(--f-data); letter-spacing: .05em; text-transform: uppercase; }
+td.num, th.num { text-align: right; padding-right: 0; padding-left: 10px; }
+tr.now td { font-weight: 700; }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: 0; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.fact { border-left: 2px solid var(--rule); padding-left: 12px; display: grid; gap: 2px; }
+.fact b { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; }
+details { font-size: 14px; color: var(--ink-2); }
+details summary { cursor: pointer; color: var(--ink); font-weight: 700; }
+.notes { display: grid; gap: 8px; max-width: 75ch; margin-top: 10px; }
+.warnline { color: var(--warn); font-size: 14px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="title-row">
+      <div style="display:grid;gap:8px">
+        <span class="eyebrow">Mars ↔ The Tube · light-lag correspondence</span>
+        <h1>Penpal Clock</h1>
+      </div>
+      <p class="muted small">Pick a moment and see how long a message between Kahlun and Grafin takes, what time it is for each of them, and where Mars is in its seasons. Dates are Earth calendar dates.</p>
+    </div>
+    <div class="panel controls" role="group" aria-label="Date and time">
+      <div class="field"><label for="year">Year</label><input id="year" type="number" min="16000" max="16100" step="1" value="16008"></div>
+      <div class="field"><label for="month">Month</label><select id="month"></select></div>
+      <div class="field"><label for="day">Day</label><input id="day" type="number" min="1" max="31" value="29"></div>
+      <div class="field"><label for="time">Time (Earth)</label><input id="time" type="time" value="12:00"></div>
+      <div class="field"><label>Step</label>
+        <div class="btn-group">
+          <button type="button" data-step="-30">−30 d</button><button type="button" data-step="-1">−1 d</button>
+          <button type="button" data-step="1">+1 d</button><button type="button" data-step="30">+30 d</button>
+        </div>
+      </div>
+      <div class="field"><label for="lon">Kahlun's longitude °E</label><input id="lon" type="number" min="-180" max="360" step="1" value="0"></div>
+      <div class="field"><label>Kahlun's hemisphere</label>
+        <div class="seg" id="hemi"><button type="button" data-h="N" aria-pressed="true">North</button><button type="button" data-h="S" aria-pressed="false">South</button></div>
+      </div>
+    </div>
+    <p class="warnline" id="rangeWarn" hidden>The calculations cover AD 16000–16100. Dates outside that are clamped.</p>
+  </header>
+
+  <section aria-label="The link right now">
+    <div class="panel link" style="padding:0;overflow:hidden">
+      <div class="end k">
+        <div class="who"><span class="dot k"></span><h2>Kahlun</h2></div>
+        <p class="where">Mars · local mean solar time</p>
+        <div class="clock" id="kClock">—</div>
+        <dl class="kv" id="kKv"></dl>
+      </div>
+      <div class="signal">
+        <div class="line"></div><div class="pulse" aria-hidden="true"></div>
+        <div class="lagbox">
+          <span class="eyebrow">one way</span>
+          <span class="lag" id="lag">—</span>
+          <span class="small muted num" id="rt">—</span>
+        </div>
+        <div class="lagbox small" style="gap:6px;justify-items:center">
+          <span id="status"></span>
+          <span class="muted num" id="trend"></span>
+        </div>
+      </div>
+      <div class="end g">
+        <div class="who"><span class="dot g"></span><h2>Grafin</h2></div>
+        <p class="where">The Tube, Pluto–Charon · sun over the Tube's Pluto end</p>
+        <div class="clock" id="gClock">—</div>
+        <dl class="kv" id="gKv"></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="planner">
+    <div class="sec-head">
+      <h2>Message planner</h2>
+      <div class="seg" id="dir"><button type="button" data-d="KG" aria-pressed="true">Kahlun → Grafin</button><button type="button" data-d="GK" aria-pressed="false">Grafin → Kahlun</button></div>
+    </div>
+    <div class="msg-steps">
+      <div class="step" id="st1"></div>
+      <div class="step" id="st2"></div>
+      <div class="step" id="st3"></div>
+    </div>
+    <div class="controls small">
+      <div class="field"><label for="replyMin">Reply written in (minutes)</label><input id="replyMin" type="number" min="0" max="10000" step="5" value="20"></div>
+      <p class="muted" id="rhythm" style="align-self:center"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2 id="chartTitle">Light lag through the Mars year</h2>
+      <div class="legend" id="chartLegend"></div>
+    </div>
+    <div class="panel chart-wrap" style="padding:12px 12px 6px">
+      <svg id="chart" viewBox="0 0 960 330" role="img" aria-label="One-way light lag in hours over the Mars year, with Martian seasons and solar blackout periods shaded"></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <p class="small muted">Click anywhere on the chart to jump to that day. Seasons are shaded for Kahlun's hemisphere.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Mars seasons</h2><span class="eyebrow" id="myLabel"></span></div>
+    <div class="panel seasons">
+      <svg id="wheel" viewBox="0 0 300 300" role="img" aria-label="Mars year wheel showing the four seasons, perihelion, aphelion and today's position"></svg>
+      <div style="display:grid;gap:16px;min-width:0">
+        <div class="table-scroll"><table id="seasonTable"></table></div>
+        <div class="facts" id="facts"></div>
+      </div>
+    </div>
+    <details class="panel">
+      <summary>Mars months in this Mars year</summary>
+      <p class="small muted" style="margin:10px 0">The common scientific convention splits the Mars year into 12 "months" of 30° of solar longitude each. They vary in length because Mars moves faster near the Sun.</p>
+      <div class="table-scroll"><table id="monthTable"></table></div>
+    </details>
+  </section>
+
+  <section>
+    <details class="panel">
+      <summary>How this is calculated, and how far to trust it</summary>
+      <div class="notes">
+        <p>Planet positions come from an N-body simulation of the Sun, the eight planets and Pluto, started from NASA JPL's DE421 ephemeris for the year 2000 and run forward 14,000 years. Checked against DE421 over 1900–2050, the method is accurate to a few thousand km. Over 14,000 years small errors grow, so treat dates as good to within a few days: fine for fiction, not for mission planning.</p>
+        <p>Mars seasons account for the slow wobble of Mars's spin axis (about 7.6 arcseconds a year). Over 14,000 years it has moved Mars's closest approach to the Sun from late northern autumn today to late northern winter, so season lengths in the 161st century differ from today's. The calculation reproduces today's real Mars Year 36 start (7 February 2021) to within hours.</p>
+        <p>Mars Year numbers follow the scientific count that started with Mars Year 1 on 11 April 1955. Mars time uses the mean solar day of 24 h 39 m 35 s. Local time ignores the equation of time, which can shift sundial time by up to about 50 minutes.</p>
+        <p>The Tube's sun-time assumes the Tube's Pluto end is at the point directly under Charon, which by convention is Pluto's 0° longitude. Over 14,000 years even a tiny error in Pluto's day length adds up, so the exact hour is a best guess. The six-day rhythm of day and night is real. Pluto's season uses its present axis tilt of about 120°.</p>
+        <p>A blackout is flagged when the radio path passes within 10 solar radii of the Sun. That is roughly when today's Mars missions lose contact with Earth. A relay off to one side of the Sun would get around it, if the culture has one.</p>
+        <p>Earth dates are on the proleptic Gregorian calendar in Terrestrial Time. By 16008, Earth's slowing spin means clock time and astronomical time drift apart by roughly a week, so in-world calendars may have been reformed.</p>
+      </div>
+    </details>
+  </section>
+</div>
+
+<script src="ephemeris.js"></script>
+<script>
+(() => {
+"use strict";
+const E = window.EPH;
+const D2R = Math.PI / 180, R2D = 180 / Math.PI;
+const C_AU_PER_DAY = 173.1446326742403;
+const MARS_SOL = 1.0274912517;              // Earth days per sol
+const MY1_START = 2435208.5;                // 1955-04-11, start of Mars Year 1
+const MARS_TROPICAL_YEAR = 686.9726;
+const PLUTO_DAY = 6.3872304;
+const SUN_RADIUS_AU = 0.0046505;
+const BLACKOUT_RSUN = 10, DEGRADED_RSUN = 20;
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const SEASONS = ["spring", "summer", "autumn", "winter"];
+const SEASON_VARS = ["--s1", "--s2", "--s3", "--s4"];
+// Northern season lengths today (sols), for comparison
+const TODAY_N_SOLS = [193.3, 178.6, 142.7, 153.9];
+
+// ---------- vectors ----------
+const dot = (a, b) => a[0]*b[0] + a[1]*b[1] + a[2]*b[2];
+const cross = (a, b) => [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
+const norm = a => Math.hypot(a[0], a[1], a[2]);
+const unit = a => { const n = norm(a); return [a[0]/n, a[1]/n, a[2]/n]; };
+const sub = (a, b) => [a[0]-b[0], a[1]-b[1], a[2]-b[2]];
+const scale = (a, s) => [a[0]*s, a[1]*s, a[2]*s];
+
+// ---------- two-body propagation from a state vector ----------
+function propagate(st, mu, dt) {
+  const r0 = st.slice(0, 3), v0 = st.slice(3, 6);
+  const r = norm(r0), v2 = dot(v0, v0);
+  const a = 1 / (2 / r - v2 / mu);
+  const h = cross(r0, v0);
+  const evec = sub(scale(cross(v0, h), 1 / mu), scale(r0, 1 / r));
+  const e = norm(evec);
+  const P = scale(evec, 1 / e), Q = unit(cross(h, P));
+  const n = Math.sqrt(mu / (a * a * a));
+  const E0 = Math.atan2(dot(r0, v0) / Math.sqrt(mu * a), 1 - r / a);
+  let M = E0 - e * Math.sin(E0) + n * dt, E = M;
+  for (let i = 0; i < 30; i++) { const dE = (E - e * Math.sin(E) - M) / (1 - e * Math.cos(E)); E -= dE; if (Math.abs(dE) < 1e-14) break; }
+  const cE = Math.cos(E), sE = Math.sin(E), b = Math.sqrt(1 - e * e);
+  const rr = a * (1 - e * cE);
+  const pos = [0, 1, 2].map(i => a * (cE - e) * P[i] + a * b * sE * Q[i]);
+  const vel = [0, 1, 2].map(i => Math.sqrt(mu * a) / rr * (-sE * P[i] + b * cE * Q[i]));
+  return [pos, vel];
+}
+const JD_MIN = E.t0, JD_MAX = E.t0 + (E.mars.length - 1) * E.step_mars;
+function marsState(jd) {
+  const i = Math.max(0, Math.min(E.mars.length - 1, Math.round((jd - E.t0) / E.step_mars)));
+  return propagate(E.mars[i], E.mu_mars, jd - (E.t0 + i * E.step_mars));
+}
+function plutoState(jd) {
+  const i = Math.max(0, Math.min(E.pluto.length - 1, Math.round((jd - E.t0) / E.step_pluto)));
+  return propagate(E.pluto[i], E.mu_pluto, jd - (E.t0 + i * E.step_pluto));
+}
+function marsPole(jd) {
+  const x = (jd - E.t0) / E.step_pluto;
+  const i = Math.max(0, Math.min(E.pole.length - 2, Math.floor(x))), f = Math.max(0, Math.min(1, x - i));
+  const a = E.pole[i], b = E.pole[i + 1];
+  return unit([0, 1, 2].map(k => a[k] * (1 - f) + b[k] * f));
+}
+
+// ---------- Mars seasons ----------
+function solarLongitude(jd) {
+  const [r, v] = marsState(jd);
+  const p = marsPole(jd);
+  const n = unit(cross(r, v));
+  const e1 = unit(cross(p, n)), e2 = cross(n, e1), s = scale(r, -1);
+  return ((Math.atan2(dot(s, e2), dot(s, e1)) * R2D) % 360 + 360) % 360;
+}
+const angDiff = (a, b) => ((a - b + 540) % 360) - 180;
+// first time at/after jd (dir=+1) or at/before jd (dir=-1) when Ls crosses target
+function lsCrossing(jd, target, dir) {
+  let t = jd, f = angDiff(solarLongitude(t), target);
+  if (dir > 0 && Math.abs(f) < 1e-9) return t;
+  for (let k = 0; k < 400; k++) {
+    const t2 = t + dir * 3, f2 = angDiff(solarLongitude(t2), target);
+    const crossed = dir > 0 ? (f < 0 && f2 >= 0) : (f >= 0 && f2 < 0);
+    if (crossed) {
+      let lo = Math.min(t, t2), hi = Math.max(t, t2);
+      for (let i = 0; i < 40; i++) { const m = (lo + hi) / 2; if (angDiff(solarLongitude(m), target) < 0) lo = m; else hi = m; }
+      return (lo + hi) / 2;
+    }
+    t = t2; f = f2;
+  }
+  return NaN;
+}
+function marsYearInfo(jd) {
+  const start = lsCrossing(jd + 1e-6, 0, -1);
+  const end = lsCrossing(start + 600, 0, 1);
+  const my = Math.round((start - MY1_START) / MARS_TROPICAL_YEAR) + 1;
+  const bounds = [0, 90, 180, 270].map(L => L === 0 ? start : lsCrossing(start + 1, L, 1)).concat([end]);
+  return { my, start, end, bounds };
+}
+function seasonName(Ls, hemi) {
+  const i = Math.floor(Ls / 90) % 4;
+  return SEASONS[hemi === "N" ? i : (i + 2) % 4];
+}
+function seasonIndexFor(Ls, hemi) { const i = Math.floor(Ls / 90) % 4; return hemi === "N" ? i : (i + 2) % 4; }
+
+// ---------- Pluto / the Tube ----------
+const EPS = 84381.448 / 3600 * D2R;
+const eqToEcl = a => [a[0], Math.cos(EPS) * a[1] + Math.sin(EPS) * a[2], -Math.sin(EPS) * a[1] + Math.cos(EPS) * a[2]];
+const PLUTO_RA = 132.993 * D2R, PLUTO_DEC = -6.163 * D2R;
+const PLUTO_POLE_EQ = [Math.cos(PLUTO_DEC) * Math.cos(PLUTO_RA), Math.cos(PLUTO_DEC) * Math.sin(PLUTO_RA), Math.sin(PLUTO_DEC)];
+const PLUTO_NODE_EQ = unit(cross([0, 0, 1], PLUTO_POLE_EQ));
+function tubeSun(jd) {
+  const [rp] = plutoState(jd);
+  const W = ((302.695 + 56.3625225 * (jd - 2451545.0)) % 360) * D2R;
+  const p = eqToEcl(PLUTO_POLE_EQ), N = eqToEcl(PLUTO_NODE_EQ), pxN = cross(p, N);
+  const x = [0, 1, 2].map(i => N[i] * Math.cos(W) + pxN[i] * Math.sin(W));
+  const y = cross(p, x);
+  const s = unit(scale(rp, -1));
+  const lonSun = Math.atan2(dot(s, y), dot(s, x)) * R2D;          // east longitude of the subsolar point
+  const subsolarLat = Math.asin(dot(s, p)) * R2D;
+  const lst = (((12 + (0 - lonSun) / 15) % 24) + 24) % 24;     // local solar time at 0° (the sub-Charon point)
+  return { lst, subsolarLat, rSun: norm(rp) };
+}
+
+// ---------- the link ----------
+function link(jd) {
+  const [rm] = marsState(jd), [rp] = plutoState(jd);
+  const d = sub(rp, rm), dist = norm(d);
+  // closest approach of the straight radio path to the Sun
+  const u = scale(d, 1 / dist), tc = -dot(rm, u);
+  const closest = tc <= 0 ? norm(rm) : tc >= dist ? norm(rp) : norm([rm[0] + u[0]*tc, rm[1] + u[1]*tc, rm[2] + u[2]*tc]);
+  return { dist, lagDays: dist / C_AU_PER_DAY, sunRadii: closest / SUN_RADIUS_AU };
+}
+// light-time solution: arrival time for a signal leaving `from` at jd
+function arrival(jd, from) {
+  let t = jd + link(jd).lagDays;
+  for (let i = 0; i < 3; i++) {
+    const [rm] = marsState(from === "K" ? jd : t), [rp] = plutoState(from === "K" ? t : jd);
+    t = jd + norm(sub(rp, rm)) / C_AU_PER_DAY;
+  }
+  return t;
+}
+
+// ---------- time formatting ----------
+const jdFromParts = (y, mo, d, h, mi) => Date.UTC(y, mo, d, h, mi) / 86400000 + 2440587.5;
+function dateOf(jd) { const dt = new Date(); dt.setTime((jd - 2440587.5) * 86400000); return dt; }
+const pad = n => String(n).padStart(2, "0");
+function fmtDate(jd, withTime = true) {
+  const d = dateOf(jd);
+  const s = `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()].slice(0, 3)} ${d.getUTCFullYear()}`;
+  return withTime ? `${s}, ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}` : s;
+}
+const fmtShort = jd => { const d = dateOf(jd); return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()].slice(0, 3)}`; };
+function fmtDur(days) {
+  const m = Math.round(days * 1440), h = Math.floor(m / 60);
+  return h ? `${h} h ${pad(m % 60)} m` : `${m} m`;
+}
+function fmtHours(hours) { const m = Math.round(hours * 60) % 1440; return `${pad(Math.floor(m / 60))}:${pad(m % 60)}`; }
+function marsLocal(jd, lon) {
+  const msd = (jd - 2405522.0028779) / MARS_SOL;
+  const lmst = ((((msd % 1) * 24 + lon / 15) % 24) + 24) % 24;
+  return { msd, lmst };
+}
+const partOfDay = h => h < 5 ? "night" : h < 7 ? "dawn" : h < 12 ? "morning" : h < 17 ? "afternoon" : h < 19 ? "dusk" : "night";
+
+// ---------- state ----------
+const $ = id => document.getElementById(id);
+const store = { get(k, d) { try { const v = localStorage.getItem("ppc." + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
+                set(k, v) { try { localStorage.setItem("ppc." + k, JSON.stringify(v)); } catch {} } };
+const S = { jd: store.get("jd", jdFromParts(16008, 3, 29, 12, 0)), lon: store.get("lon", 0), hemi: store.get("hemi", "N"), dir: store.get("dir", "KG"), reply: store.get("reply", 20) };
+let yearCache = null;
+
+MONTHS.forEach((m, i) => { const o = document.createElement("option"); o.value = i; o.textContent = m; $("month").appendChild(o); });
+
+function syncInputs() {
+  const d = dateOf(S.jd);
+  $("year").value = d.getUTCFullYear(); $("month").value = d.getUTCMonth(); $("day").value = d.getUTCDate();
+  $("time").value = `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`;
+  $("lon").value = S.lon; $("replyMin").value = S.reply;
+  document.querySelectorAll("#hemi button").forEach(b => b.setAttribute("aria-pressed", b.dataset.h === S.hemi));
+  document.querySelectorAll("#dir button").forEach(b => b.setAttribute("aria-pressed", b.dataset.d === S.dir));
+}
+function readInputs() {
+  const y = parseInt($("year").value, 10), mo = parseInt($("month").value, 10), d = parseInt($("day").value, 10);
+  const [h, mi] = ($("time").value || "12:00").split(":").map(Number);
+  if ([y, mo, d, h, mi].some(Number.isNaN)) return;
+  setJd(jdFromParts(y, mo, d, h, mi));
+}
+function setJd(jd) {
+  const lo = jdFromParts(16000, 0, 1, 0, 0), hi = jdFromParts(16100, 11, 31, 23, 59);
+  $("rangeWarn").hidden = jd >= lo && jd <= hi;
+  S.jd = Math.max(lo, Math.min(hi, jd));
+  store.set("jd", S.jd); syncInputs(); render();
+}
+
+const ICON = {
+  ok: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
+  warn: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l6.5 11.5h-13z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 6.5v3.5M8 11.6v.4" stroke="currentColor" stroke-width="1.6"/></svg>',
+  crit: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="currentColor" stroke-width="1.6"/></svg>'
+};
+function statusChip(rs) {
+  if (rs < BLACKOUT_RSUN) return `<span class="chip crit">${ICON.crit}Solar blackout · path ${rs.toFixed(1)} R☉ from Sun</span>`;
+  if (rs < DEGRADED_RSUN) return `<span class="chip warn">${ICON.warn}Noisy · path ${rs.toFixed(0)} R☉ from Sun</span>`;
+  return `<span class="chip ok">${ICON.ok}Clear signal</span>`;
+}
+const kv = rows => rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+
+function render() {
+  const jd = S.jd;
+  const L = link(jd);
+  // lag
+  $("lag").textContent = fmtDur(L.lagDays);
+  $("rt").textContent = `round trip ${fmtDur(2 * L.lagDays)} · ${L.dist.toFixed(2)} AU`;
+  $("status").innerHTML = statusChip(L.sunRadii);
+  const dPerWeek = (link(jd + 3.5).lagDays - link(jd - 3.5).lagDays) * 1440;
+  $("trend").textContent = Math.abs(dPerWeek) < 0.5 ? "holding steady" : `${dPerWeek > 0 ? "growing" : "shrinking"} ${Math.abs(dPerWeek).toFixed(0)} min / week`;
+
+  // Kahlun
+  const Ls = solarLongitude(jd);
+  if (!yearCache || jd < yearCache.start || jd >= yearCache.end) yearCache = marsYearInfo(jd);
+  const Y = yearCache;
+  const ml = marsLocal(jd, S.lon);
+  const sol = Math.floor((jd - Y.start) / MARS_SOL) + 1, sols = Math.round((Y.end - Y.start) / MARS_SOL);
+  const [rm] = marsState(jd);
+  $("kClock").textContent = fmtHours(ml.lmst);
+  $("kKv").innerHTML = kv([
+    ["Time of day", partOfDay(ml.lmst)],
+    ["Mars Year", `${Y.my.toLocaleString("en")}, sol ${sol} of ${sols}`],
+    ["Season", `${S.hemi === "N" ? "northern" : "southern"} ${seasonName(Ls, S.hemi)}`],
+    ["Solar longitude", `Ls ${Ls.toFixed(1)}° · month ${Math.floor(Ls / 30) + 1}`],
+    ["Sun distance", `${norm(rm).toFixed(3)} AU`]
+  ]);
+
+  // Grafin
+  const T = tubeSun(jd);
+  const toSunrise = ((6 - T.lst + 24) % 24) / 24 * PLUTO_DAY, toSunset = ((18 - T.lst + 24) % 24) / 24 * PLUTO_DAY;
+  const up = T.lst >= 6 && T.lst < 18;
+  const eclipseSeason = Math.abs(T.subsolarLat) < 5.3;
+  const plutoSeason = Math.abs(T.subsolarLat) < 10 ? "near equinox" : `${T.subsolarLat > 0 ? "north" : "south"} pole sunward`;
+  $("gClock").textContent = fmtHours(T.lst);
+  $("gKv").innerHTML = kv([
+    ["Sun over the Tube", up ? `up · sets in ${fmtDur(toSunset)}` : `down · rises in ${fmtDur(toSunrise)}`],
+    ["Pluto day", `${(PLUTO_DAY * 24).toFixed(1)} Earth hours`],
+    ["Pluto season", `${plutoSeason} (sun over ${Math.abs(T.subsolarLat).toFixed(0)}°${T.subsolarLat >= 0 ? "N" : "S"})`],
+    ["Charon eclipses", eclipseSeason ? "in season: Charon blocks the noon Sun" : "not in season"],
+    ["Sun distance", `${T.rSun.toFixed(2)} AU`]
+  ]);
+
+  renderPlanner(jd);
+  renderChart();
+  renderSeasons(Ls);
+}
+
+function renderPlanner(jd) {
+  const from = S.dir === "KG" ? "K" : "G";
+  const sendName = from === "K" ? "Kahlun" : "Grafin", recvName = from === "K" ? "Grafin" : "Kahlun";
+  const localStr = (t, who) => who === "K" ? `${fmtHours(marsLocal(t, S.lon).lmst)} Mars time` : `${fmtHours(tubeSun(t).lst)} Tube sun-time`;
+  const t1 = arrival(jd, from);
+  const t2 = t1 + S.reply / 1440;
+  const t3 = arrival(t2, from === "K" ? "G" : "K");
+  const cls = w => w === "K" ? "k" : "g";
+  const other = from === "K" ? "G" : "K";
+  $("st1").className = "step " + cls(from);
+  $("st1").innerHTML = `<span class="eyebrow">1 · ${sendName} sends</span><span class="big">${fmtDate(jd)}</span><span class="small muted">${localStr(jd, from)}</span>`;
+  $("st2").className = "step " + cls(other);
+  $("st2").innerHTML = `<span class="eyebrow">2 · ${recvName} receives</span><span class="big">${fmtDate(t1)}</span><span class="small muted">${localStr(t1, other)} · after ${fmtDur(t1 - jd)}</span>`;
+  $("st3").className = "step " + cls(from);
+  $("st3").innerHTML = `<span class="eyebrow">3 · reply reaches ${sendName}</span><span class="big">${fmtDate(t3)}</span><span class="small muted">${localStr(t3, from)} · ${fmtDur(t3 - jd)} after sending</span>`;
+  const perDay = 1 / (t3 - jd);
+  $("rhythm").textContent = `At this distance a quick back-and-forth gives about ${perDay.toFixed(1)} full exchanges per Earth day.`;
+}
+
+// ---------- chart ----------
+let chartData = null;
+function renderChart() {
+  const Y = yearCache, svg = $("chart");
+  const W = 960, H = 330, m = { l: 48, r: 16, t: 34, b: 34 };
+  const key = `${Y.start}|${S.hemi}`;
+  if (!chartData || chartData.key !== key) {
+    const pts = [];
+    for (let t = Y.start; t <= Y.end + 0.01; t += 1) { const l = link(t); pts.push([t, l.lagDays * 24, l.sunRadii]); }
+    chartData = { key, pts };
+  }
+  const pts = chartData.pts;
+  const lags = pts.map(p => p[1]);
+  const yMin = Math.floor(Math.min(...lags) * 2) / 2 - 0.25, yMax = Math.ceil(Math.max(...lags) * 2) / 2 + 0.25;
+  const x = t => m.l + (t - Y.start) / (Y.end - Y.start) * (W - m.l - m.r);
+  const y = v => m.t + (yMax - v) / (yMax - yMin) * (H - m.t - m.b);
+  let s = "";
+  // season bands
+  for (let i = 0; i < 4; i++) {
+    const si = seasonIndexFor(i * 90 + 1, S.hemi), x0 = x(Y.bounds[i]), x1 = x(Y.bounds[i + 1]);
+    s += `<rect x="${x0}" y="${m.t}" width="${x1 - x0}" height="${H - m.t - m.b}" style="fill:var(${SEASON_VARS[si]})"/>`;
+    s += `<text class="band-label" x="${x0 + 6}" y="${m.t - 10}">${SEASONS[si]}</text>`;
+  }
+  // blackout bands
+  let run = null;
+  const flush = (a, b) => { s += `<rect x="${x(a) - 1}" y="${m.t}" width="${Math.max(3, x(b) - x(a) + 2)}" height="${H - m.t - m.b}" style="fill:var(--crit-wash)"/><text x="${x(a) + 4}" y="${m.t + 14}" style="fill:var(--crit)">blackout</text>`; };
+  pts.forEach(p => { if (p[2] < BLACKOUT_RSUN) { if (!run) run = [p[0], p[0]]; else run[1] = p[0]; } else if (run) { flush(...run); run = null; } });
+  if (run) flush(...run);
+  // grid + y ticks
+  for (let v = Math.ceil(yMin * 2) / 2; v <= yMax; v += 0.5) {
+    s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" style="stroke:var(--grid)" stroke-width="1"/>`;
+    if (Number.isInteger(v)) s += `<text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end">${v} h</text>`;
+  }
+  // x ticks: first of each Earth month, labelled every ~2 months
+  const d0 = dateOf(Y.start); let yy = d0.getUTCFullYear(), mm = d0.getUTCMonth() + 1, k = 0;
+  for (;;) {
+    if (mm > 11) { mm = 0; yy++; }
+    const t = jdFromParts(yy, mm, 1, 0, 0); if (t > Y.end) break;
+    s += `<line x1="${x(t)}" x2="${x(t)}" y1="${H - m.b}" y2="${H - m.b + 4}" style="stroke:var(--ink-3)"/>`;
+    if (k % 3 === 0) s += `<text x="${x(t)}" y="${H - m.b + 18}" text-anchor="middle">${MONTHS[mm].slice(0, 3)}${mm === 0 || k === 0 ? " " + yy : ""}</text>`;
+    mm++; k++;
+  }
+  s += `<line x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}" style="stroke:var(--rule)"/>`;
+  // area + line
+  const path = pts.map((p, i) => `${i ? "L" : "M"}${x(p[0]).toFixed(1)},${y(p[1]).toFixed(1)}`).join("");
+  s += `<path d="${path}L${x(pts[pts.length - 1][0])},${H - m.b}L${x(pts[0][0])},${H - m.b}Z" style="fill:var(--ice-wash)"/>`;
+  s += `<path d="${path}" fill="none" style="stroke:var(--ice)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  // extremes
+  const iMin = lags.indexOf(Math.min(...lags)), iMax = lags.indexOf(Math.max(...lags));
+  for (const [i, lab] of [[iMin, "shortest"], [iMax, "longest"]]) {
+    const px = x(pts[i][0]), py = y(pts[i][1]);
+    const anchor = px > W - 120 ? "end" : px < m.l + 80 ? "start" : "middle";
+    s += `<text x="${px + (anchor === "middle" ? 8 : 0)}" y="${lab === "longest" ? py - 12 : py + 20}" text-anchor="${anchor === "middle" ? "start" : anchor}" style="fill:var(--ink-2)">${lab} ${fmtDur(pts[i][1] / 24)}</text>`;
+  }
+  // today marker
+  const tx = x(S.jd), ty = y(link(S.jd).lagDays * 24);
+  s += `<line x1="${tx}" x2="${tx}" y1="${m.t}" y2="${H - m.b}" style="stroke:var(--ink)" stroke-width="1"/>`;
+  s += `<circle cx="${tx}" cy="${ty}" r="5" style="fill:var(--ice);stroke:var(--panel)" stroke-width="2"/>`;
+  // hover layer
+  s += `<line id="hx" x1="0" x2="0" y1="${m.t}" y2="${H - m.b}" style="stroke:var(--ink-3)" stroke-dasharray="0" stroke-width="1" visibility="hidden"/>`;
+  s += `<circle id="hd" r="4" style="fill:var(--ice);stroke:var(--panel)" stroke-width="2" visibility="hidden"/>`;
+  s += `<rect id="hit" x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${H - m.t - m.b}" fill="transparent" style="cursor:crosshair"/>`;
+  svg.innerHTML = s;
+  $("chartTitle").textContent = `Light lag through Mars Year ${Y.my.toLocaleString("en")}`;
+  $("chartLegend").innerHTML = SEASONS.map((n, i) => `<span><i class="sw" style="background:var(${SEASON_VARS[i]})"></i>${S.hemi === "N" ? "N." : "S."} ${n}</span>`).join("") + `<span><i class="sw" style="background:var(--crit-wash)"></i>solar blackout</span>`;
+
+  const hit = $("hit"), tip = $("tip"), hx = $("hx"), hd = $("hd");
+  const toT = ev => { const r = svg.getBoundingClientRect(); const sx = (ev.clientX - r.left) / r.width * W; return Y.start + (sx - m.l) / (W - m.l - m.r) * (Y.end - Y.start); };
+  hit.onmousemove = ev => {
+    const t = Math.max(Y.start, Math.min(Y.end, toT(ev)));
+    const p = pts[Math.max(0, Math.min(pts.length - 1, Math.round(t - Y.start)))];
+    hx.setAttribute("x1", x(p[0])); hx.setAttribute("x2", x(p[0])); hx.setAttribute("visibility", "visible");
+    hd.setAttribute("cx", x(p[0])); hd.setAttribute("cy", y(p[1])); hd.setAttribute("visibility", "visible");
+    const Lsv = solarLongitude(p[0]);
+    tip.innerHTML = `<b>${fmtDate(p[0], false)}</b><br>One way <span class="num">${fmtDur(p[1] / 24)}</span><br>${S.hemi === "N" ? "Northern" : "Southern"} ${seasonName(Lsv, S.hemi)} · Ls ${Lsv.toFixed(0)}°${p[2] < BLACKOUT_RSUN ? '<br><span style="color:var(--crit)">Solar blackout</span>' : ""}`;
+    tip.hidden = false;
+    const wrap = svg.parentElement.getBoundingClientRect(), r = svg.getBoundingClientRect();
+    const px = r.left - wrap.left + x(p[0]) / W * r.width + svg.parentElement.scrollLeft;
+    tip.style.left = Math.min(px + 12, svg.parentElement.scrollWidth - tip.offsetWidth - 8) + "px";
+    tip.style.top = "16px";
+  };
+  hit.onmouseleave = () => { tip.hidden = true; hx.setAttribute("visibility", "hidden"); hd.setAttribute("visibility", "hidden"); };
+  hit.onclick = ev => { const t = Math.max(Y.start, Math.min(Y.end - 0.01, toT(ev))); const fr = S.jd % 1; setJd(Math.floor(t) + fr); };
+}
+
+// ---------- seasons wheel + tables ----------
+let seasonCacheKey = null;
+function renderSeasons(Ls) {
+  const Y = yearCache;
+  $("myLabel").textContent = `Mars Year ${Y.my.toLocaleString("en")} · ${fmtDate(Y.start, false)} – ${fmtDate(Y.end, false)}`;
+  const key = `${Y.start}|${S.hemi}`;
+  if (seasonCacheKey !== key) {
+    seasonCacheKey = key;
+    // perihelion / aphelion
+    let peri = [0, 1e9], aph = [0, 0];
+    for (let t = Y.start; t < Y.end; t += 1) { const r = norm(marsState(t)[0]); if (r < peri[1]) peri = [t, r]; if (r > aph[1]) aph = [t, r]; }
+    const refine = (t0, sign) => { let lo = t0 - 1, hi = t0 + 1; for (let i = 0; i < 40; i++) { const a = lo + (hi - lo) / 3, b = hi - (hi - lo) / 3; if (sign * norm(marsState(a)[0]) < sign * norm(marsState(b)[0])) hi = b; else lo = a; } return (lo + hi) / 2; };
+    const tp = refine(peri[0], 1), ta = refine(aph[0], -1);
+    Y.peri = { t: tp, Ls: solarLongitude(tp), r: norm(marsState(tp)[0]) };
+    Y.aph = { t: ta, Ls: solarLongitude(ta), r: norm(marsState(ta)[0]) };
+    // season table
+    let rows = `<thead><tr><th>${S.hemi === "N" ? "Northern" : "Southern"} season</th><th>Starts (Earth date)</th><th class="num">Sol</th><th class="num">Length</th><th class="num">Today's length</th></tr></thead><tbody>`;
+    for (let i = 0; i < 4; i++) {
+      const si = seasonIndexFor(i * 90 + 1, S.hemi);
+      const len = (Y.bounds[i + 1] - Y.bounds[i]) / MARS_SOL, solStart = Math.floor((Y.bounds[i] - Y.start) / MARS_SOL) + 1;
+      rows += `<tr data-i="${i}"><td><span class="swatch" style="background:var(${SEASON_VARS[si]});outline:1px solid var(--rule)"></span>${SEASONS[si]} <span class="muted small">Ls ${i * 90}°</span></td><td class="num">${fmtDate(Y.bounds[i], false)}</td><td class="num">${solStart}</td><td class="num">${len.toFixed(0)} sols</td><td class="num muted">${TODAY_N_SOLS[i].toFixed(0)} sols</td></tr>`;
+    }
+    $("seasonTable").innerHTML = rows + "</tbody>";
+    // months
+    let mrows = `<thead><tr><th>Month</th><th>Ls</th><th>Starts (Earth date)</th><th class="num">Sol</th><th class="num">Length</th></tr></thead><tbody>`;
+    let prev = Y.start;
+    for (let i = 0; i < 12; i++) {
+      const next = i === 11 ? Y.end : lsCrossing(prev + 1, (i + 1) * 30, 1);
+      mrows += `<tr data-m="${i}"><td>${i + 1}</td><td class="num">${i * 30}°–${(i + 1) * 30}°</td><td class="num">${fmtDate(prev, false)}</td><td class="num">${Math.floor((prev - Y.start) / MARS_SOL) + 1}</td><td class="num">${((next - prev) / MARS_SOL).toFixed(0)} sols</td></tr>`;
+      prev = next;
+    }
+    $("monthTable").innerHTML = mrows + "</tbody>";
+    const boost = Math.pow(Y.aph.r / Y.peri.r, 2);
+    $("facts").innerHTML = [
+      ["Closest to the Sun", `${fmtDate(Y.peri.t, false)} · Ls ${Y.peri.Ls.toFixed(0)}°`, `${seasonName(Y.peri.Ls, "N")} in the north, ${seasonName(Y.peri.Ls, "S")} in the south. Today it falls in late northern autumn (Ls 251°).`],
+      ["Farthest from the Sun", `${fmtDate(Y.aph.t, false)} · Ls ${Y.aph.Ls.toFixed(0)}°`, `${seasonName(Y.aph.Ls, "N")} in the north, ${seasonName(Y.aph.Ls, "S")} in the south.`],
+      ["Sunlight swing", `${Math.round((boost - 1) * 100)}% stronger at closest`, "Mars's oval orbit matters more than Earth's, where the swing is about 7%."],
+      ["Mars year", `${Math.round((Y.end - Y.start) / MARS_SOL)} sols · ${Math.round(Y.end - Y.start)} Earth days`, "Seasons start at the equinoxes and solstices, each 90° of solar longitude (Ls)."]
+    ].map(([h, b, p]) => `<div class="fact"><span class="eyebrow">${h}</span><b>${b}</b><span class="small muted">${p}</span></div>`).join("");
+  }
+  // highlight current rows
+  const qi = Math.floor(Ls / 90) % 4, mi = Math.floor(Ls / 30) % 12;
+  document.querySelectorAll("#seasonTable tbody tr").forEach(tr => tr.classList.toggle("now", +tr.dataset.i === qi));
+  document.querySelectorAll("#monthTable tbody tr").forEach(tr => tr.classList.toggle("now", +tr.dataset.m === mi));
+  drawWheel(Ls);
+}
+function drawWheel(Ls) {
+  const Y = yearCache, cx = 150, cy = 150, R = 112, w = 26;
+  // angle runs clockwise from the top, by time through the year so arc lengths show season lengths
+  const ang = t => (t - Y.start) / (Y.end - Y.start) * 2 * Math.PI - Math.PI / 2;
+  const pt = (a, r) => [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  let s = "";
+  for (let i = 0; i < 4; i++) {
+    const a0 = ang(Y.bounds[i]) + 0.012, a1 = ang(Y.bounds[i + 1]) - 0.012, large = a1 - a0 > Math.PI ? 1 : 0;
+    const [x0, y0] = pt(a0, R), [x1, y1] = pt(a1, R), [x2, y2] = pt(a1, R - w), [x3, y3] = pt(a0, R - w);
+    const si = seasonIndexFor(i * 90 + 1, S.hemi);
+    s += `<path d="M${x0},${y0}A${R},${R} 0 ${large} 1 ${x1},${y1}L${x2},${y2}A${R - w},${R - w} 0 ${large} 0 ${x3},${y3}Z" style="fill:var(${SEASON_VARS[si]});stroke:var(--rule)" stroke-width="1"/>`;
+    const am = (a0 + a1) / 2, [lx, ly] = pt(am, R + 16);
+    s += `<text x="${lx}" y="${ly + 4}" text-anchor="middle">${SEASONS[si]}</text>`;
+  }
+  for (const [o, lab] of [[Y.peri, "closest"], [Y.aph, "farthest"]]) {
+    const a = ang(o.t), [x0, y0] = pt(a, R - w - 4), [x1, y1] = pt(a, R - w - 16);
+    s += `<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" style="stroke:var(--ink-3)" stroke-width="1.5"/>`;
+    const [tx, ty] = pt(a, R - w - 28);
+    s += `<text x="${tx}" y="${ty + 4}" text-anchor="middle" style="font-size:10px;fill:var(--ink-3)">${lab}</text>`;
+  }
+  const a = ang(S.jd), [mx, my] = pt(a, R - w / 2);
+  s += `<circle cx="${mx}" cy="${my}" r="8" style="fill:var(--mars);stroke:var(--panel)" stroke-width="2"/>`;
+  const sol = Math.floor((S.jd - Y.start) / MARS_SOL) + 1;
+  s += `<text x="${cx}" y="${cy - 8}" text-anchor="middle" style="font-family:var(--f-display);font-size:20px;font-weight:700;fill:var(--ink)">${seasonName(Ls, S.hemi)}</text>`;
+  s += `<text x="${cx}" y="${cy + 12}" text-anchor="middle">sol ${sol} · Ls ${Ls.toFixed(0)}°</text>`;
+  s += `<text x="${cx}" y="${cy + 28}" text-anchor="middle" style="fill:var(--ink-3)">${S.hemi === "N" ? "northern" : "southern"} hemisphere</text>`;
+  $("wheel").innerHTML = s;
+}
+
+// ---------- events ----------
+["year", "month", "day", "time"].forEach(id => $(id).addEventListener("change", readInputs));
+document.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click", () => setJd(S.jd + Number(b.dataset.step))));
+$("lon").addEventListener("change", () => { const v = parseFloat($("lon").value); if (!Number.isNaN(v)) { S.lon = v; store.set("lon", v); render(); } });
+$("replyMin").addEventListener("change", () => { const v = parseFloat($("replyMin").value); if (!Number.isNaN(v) && v >= 0) { S.reply = v; store.set("reply", v); renderPlanner(S.jd); } });
+document.querySelectorAll("#hemi button").forEach(b => b.addEventListener("click", () => { S.hemi = b.dataset.h; store.set("hemi", S.hemi); syncInputs(); render(); }));
+document.querySelectorAll("#dir button").forEach(b => b.addEventListener("click", () => { S.dir = b.dataset.d; store.set("dir", S.dir); syncInputs(); renderPlanner(S.jd); }));
+
+window.PPC = { link, solarLongitude, marsYearInfo, tubeSun, jdFromParts, arrival };
+syncInputs(); setJd(S.jd);
+})();
+</script>
