@@ -1,0 +1,258 @@
+<title>Lucky Space Story Bible</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: an index rail of every entry on the left, one entry at a time on the right, like a field guide.
+   Same type family as the Penpal Clock; ice blue leads because the first chapter is Grafin's. */
+:root {
+  --bg: #f1f3f7;
+  --panel: #ffffff;
+  --ink: #161b27;
+  --ink-2: #4b5468;
+  --ink-3: #7b8497;
+  --rule: #d9dee8;
+  --hover: #e6ebf3;
+  --accent: #2A7FA8;
+  --mars: #B4532A;
+  --check: #b3261e; --check-wash: rgba(179, 38, 30, .10);
+  --minor: #9a6400; --minor-wash: rgba(214, 150, 20, .14);
+  --question: #2A7FA8; --question-wash: rgba(42, 127, 168, .10);
+  --f-display: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-data: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0c1019; --panel: #141b28; --ink: #e8ecf4; --ink-2: #aab3c5; --ink-3: #7c869a; --rule: #263045; --hover: #1c2535;
+  --accent: #4fb0dc; --mars: #D9703F;
+  --check: #f2776d; --check-wash: rgba(242, 119, 109, .13); --minor: #e3a93a; --minor-wash: rgba(227, 169, 58, .13); --question: #4fb0dc; --question-wash: rgba(79, 176, 220, .12);
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0c1019; --panel: #141b28; --ink: #e8ecf4; --ink-2: #aab3c5; --ink-3: #7c869a; --rule: #263045; --hover: #1c2535;
+  --accent: #4fb0dc; --mars: #D9703F;
+  --check: #f2776d; --check-wash: rgba(242, 119, 109, .13); --minor: #e3a93a; --minor-wash: rgba(227, 169, 58, .13); --question: #4fb0dc; --question-wash: rgba(79, 176, 220, .12);
+  color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 64px; }
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 22px; }
+h1, h2, h3 { font-family: var(--f-display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; line-height: 1.05; }
+h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; line-height: 1.1; }
+h3 { font-size: 13px; font-family: var(--f-data); font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+p { margin: 0; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.eyebrow { font-family: var(--f-data); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.muted { color: var(--ink-2); }
+
+header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+header .t { display: grid; gap: 6px; }
+.search { position: relative; flex: 1 1 260px; max-width: 380px; }
+.search input { width: 100%; font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 9px 12px 9px 36px; }
+.search svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--ink-3); }
+
+.layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 820px) { .layout { grid-template-columns: 1fr; } }
+
+nav.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); max-height: calc(100vh - 24px); overflow: auto; display: grid; gap: 16px; padding-right: 4px; }
+@media (max-width: 820px) { nav.rail { position: static; max-height: none; } nav.rail details:not([open]) { } }
+.rail-home { display: block; padding: 6px 10px; border-radius: 8px; color: var(--ink); text-decoration: none; font-weight: 700; }
+.group { display: grid; gap: 2px; }
+.group h3 { padding: 0 10px 4px; }
+.group a { display: flex; justify-content: space-between; gap: 8px; padding: 4px 10px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 15px; }
+.group a:hover, .rail-home:hover { background: var(--hover); }
+.group a[aria-current="page"], .rail-home[aria-current="page"] { background: var(--panel); box-shadow: inset 2px 0 0 var(--accent); font-weight: 700; }
+.group a .n { color: var(--ink-3); font-size: 12px; font-family: var(--f-data); }
+details.rail-mobile > summary { display: none; }
+@media (max-width: 820px) {
+  details.rail-mobile > summary { display: block; cursor: pointer; font-weight: 700; padding: 10px 12px; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; }
+  details.rail-mobile[open] > summary { margin-bottom: 12px; }
+}
+
+main { min-width: 0; display: grid; gap: 22px; }
+.panel { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; min-width: 0; }
+.entry-head { display: grid; gap: 6px; }
+.entry-head .tag { color: var(--ink-2); font-size: 17px; }
+.sec { display: grid; gap: 8px; }
+.sec ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; max-width: 70ch; }
+.sec li::marker { color: var(--ink-3); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: var(--ink-3); }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); background: var(--panel); }
+.backlinks { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 15px; }
+
+.overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.cat-card { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--panel); text-decoration: none; color: var(--ink); }
+.cat-card:hover { border-color: var(--ink-3); }
+.cat-card b { font-family: var(--f-display); font-size: 18px; }
+.cat-card span { font-size: 13.5px; color: var(--ink-2); }
+
+.flags { display: grid; gap: 10px; }
+.flag { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; padding: 12px 14px; border-radius: 10px; }
+.flag .sev { grid-row: span 3; font-family: var(--f-data); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; padding-top: 3px; min-width: 70px; display: flex; gap: 6px; align-items: start; }
+.flag .sev svg { width: 14px; height: 14px; flex: none; }
+.flag b { font-size: 15.5px; }
+.flag .w { font-size: 12.5px; color: var(--ink-3); font-family: var(--f-data); }
+.flag p { font-size: 15px; max-width: 72ch; }
+.flag.check { background: var(--check-wash); } .flag.check .sev { color: var(--check); }
+.flag.minor, .flag.typo { background: var(--minor-wash); } .flag.minor .sev, .flag.typo .sev { color: var(--minor); }
+.flag.question { background: var(--question-wash); } .flag.question .sev { color: var(--question); }
+@media (max-width: 520px) { .flag { grid-template-columns: 1fr; } .flag .sev { grid-row: auto; } }
+ol.qs { margin: 0; padding-left: 22px; display: grid; gap: 8px; max-width: 72ch; }
+
+.results { display: grid; gap: 4px; }
+.result { display: grid; gap: 2px; padding: 10px 12px; border-radius: 10px; text-decoration: none; color: var(--ink); }
+.result:hover { background: var(--hover); }
+.result .s { font-size: 14px; color: var(--ink-2); }
+mark { background: var(--minor-wash); color: inherit; border-radius: 3px; padding: 0 2px; }
+.chapter { display: grid; gap: 4px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="t">
+      <span class="eyebrow" id="updated">Story bible</span>
+      <h1>Lucky Space Story Bible</h1>
+    </div>
+    <label class="search" for="q">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+      <input id="q" type="search" placeholder="Search names, places, words…" autocomplete="off" aria-label="Search the story bible">
+    </label>
+  </header>
+
+  <div class="layout">
+    <details class="rail-mobile" id="railWrap" open>
+      <summary>Browse all entries</summary>
+      <nav class="rail" id="rail" aria-label="Entries"></nav>
+    </details>
+    <main id="main"></main>
+  </div>
+</div>
+
+<script src="entries.js"></script>
+<script>
+(() => {
+"use strict";
+const B = window.BIBLE;
+const byId = Object.fromEntries(B.entries.map(e => [e.id, e]));
+const chapters = Object.fromEntries(B.chapters.map(c => [c.id, c]));
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const ICON = {
+  check: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l6.5 11.5h-13z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 6.5v3.5M8 11.6v.4" stroke="currentColor" stroke-width="1.6"/></svg>',
+  minor: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 5v4M8 10.8v.4" stroke="currentColor" stroke-width="1.6"/></svg>',
+  question: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.3 6.3a1.8 1.8 0 1 1 2.4 1.7c-.5.2-.7.6-.7 1.1M8 11.2v.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>'
+};
+const SEV = { check: ["check", "Check"], minor: ["minor", "Minor"], question: ["question", "Question"], typo: ["minor", "Typos"] };
+
+// Text is trusted (written by us); links use [[id]] or [[id|label]]. Plain text is escaped except entries that embed <a>.
+function rich(text) {
+  const parts = text.split(/(\[\[[^\]]+\]\])/);
+  return parts.map(p => {
+    const m = p.match(/^\[\[([^\]|]+)(?:\|([^\]]+))?\]\]$/);
+    if (!m) return /<a\s/.test(p) ? p : esc(p);
+    const e = byId[m[1]], label = esc(m[2] || (e ? e.name : m[1]));
+    return e ? `<a href="#${m[1]}">${label}</a>` : label;
+  }).join("");
+}
+const plain = text => text.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, id, l) => l || (byId[id] ? byId[id].name : id)).replace(/<[^>]+>/g, "");
+
+// backlinks
+const backlinks = {};
+for (const e of B.entries) {
+  const blob = e.sections.flatMap(([, items]) => items).join(" ");
+  for (const m of blob.matchAll(/\[\[([^\]|]+)/g)) {
+    if (m[1] === e.id) continue;
+    (backlinks[m[1]] ||= new Set()).add(e.id);
+  }
+}
+
+function renderRail(current) {
+  let h = `<a class="rail-home" href="#home"${current === "home" ? ' aria-current="page"' : ""}>Overview &amp; continuity</a>`;
+  for (const c of B.categories) {
+    const list = B.entries.filter(e => e.cat === c.id);
+    h += `<div class="group"><h3>${c.label}</h3>` + list.map(e => `<a href="#${e.id}"${e.id === current ? ' aria-current="page"' : ""}><span>${esc(e.name)}</span></a>`).join("") + `</div>`;
+  }
+  $("rail").innerHTML = h;
+}
+
+function renderHome() {
+  const counts = B.categories.map(c => [c, B.entries.filter(e => e.cat === c.id)]);
+  const flags = B.continuity.map(f => {
+    const [cls, lab] = SEV[f.sev];
+    return `<div class="flag ${f.sev === "typo" ? "typo" : cls}"><span class="sev">${ICON[cls]}${lab}</span><b>${esc(f.title)}</b><span class="w">${esc(f.where)}</span><p>${esc(f.text)}</p></div>`;
+  }).join("");
+  $("main").innerHTML = `
+    <div class="panel" style="display:grid;gap:14px">
+      <div class="entry-head"><span class="eyebrow">Overview</span><h2>The 161st-century Solar System</h2></div>
+      <p class="muted" style="max-width:68ch">Everything established on the page so far, with links between entries. Facts come from the manuscript; anything not yet on the page is labelled as such. Built from: ${B.chapters.map(c => `<b>${esc(c.title)}</b>`).join(", ")}.</p>
+      <div class="overview-grid">${counts.map(([c, l]) => `<a class="cat-card" href="#${l[0].id}"><b>${c.label}</b><span>${l.length} entries · ${l.slice(0, 3).map(e => esc(e.name)).join(", ")}${l.length > 3 ? "…" : ""}</span></a>`).join("")}</div>
+    </div>
+    <section class="panel" style="display:grid;gap:12px">
+      <h3>Chapters</h3>
+      ${B.chapters.map(c => `<div class="chapter"><b>${esc(c.title)}</b><span class="meta">Point of view: ${rich(`[[${c.pov}]]`)}</span><p style="max-width:70ch">${rich(c.summary)}</p></div>`).join("")}
+    </section>
+    <section class="panel" style="display:grid;gap:12px">
+      <div><h3>Continuity notes</h3><p class="muted" style="margin-top:6px;font-size:15px">Places where the text disagrees with itself or with the physics. Yours to decide; some may be intentional.</p></div>
+      <div class="flags">${flags}</div>
+    </section>
+    <section class="panel" style="display:grid;gap:12px">
+      <h3>Questions for you</h3>
+      <p class="muted" style="font-size:15px">Answer any of these and I'll add them to the bible.</p>
+      <ol class="qs">${B.questions.map(q => `<li>${esc(q)}</li>`).join("")}</ol>
+    </section>`;
+}
+
+function renderEntry(e) {
+  const cat = B.categories.find(c => c.id === e.cat);
+  const srcs = e.src.length ? e.src.map(s => `<span class="pill">${esc(chapters[s].title)}</span>`).join("") : `<span class="pill">Author's notes</span>`;
+  const bl = [...(backlinks[e.id] || [])].map(id => byId[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+  $("main").innerHTML = `
+    <article class="panel" style="display:grid;gap:22px">
+      <div class="entry-head">
+        <span class="eyebrow">${cat.label}</span>
+        <h2>${esc(e.name)}</h2>
+        <p class="tag">${esc(e.tag)}</p>
+        <div class="meta">Appears in ${srcs}</div>
+      </div>
+      ${e.sections.map(([h, items]) => `<div class="sec"><h3>${esc(h)}</h3><ul>${items.map(i => `<li>${rich(i)}</li>`).join("")}</ul></div>`).join("")}
+      ${bl.length ? `<div class="sec"><h3>Mentioned in</h3><div class="backlinks">${bl.map(b => `<a href="#${b.id}">${esc(b.name)}</a>`).join("")}</div></div>` : ""}
+    </article>`;
+}
+
+function renderSearch(q) {
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  const hits = [];
+  for (const e of B.entries) {
+    const lines = [e.name, e.tag, ...e.sections.flatMap(([, items]) => items.map(plain))];
+    const hay = lines.join(" ").toLowerCase();
+    if (!terms.every(t => hay.includes(t))) continue;
+    const score = terms.reduce((s, t) => s + (e.name.toLowerCase().includes(t) ? 10 : 0) + (e.tag.toLowerCase().includes(t) ? 3 : 0), 0);
+    const line = lines.slice(2).find(l => terms.some(t => l.toLowerCase().includes(t))) || e.tag;
+    hits.push([score, e, line]);
+  }
+  hits.sort((a, b) => b[0] - a[0]);
+  const re = new RegExp("(" + terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi");
+  const hl = s => esc(s).replace(re, "<mark>$1</mark>");
+  $("main").innerHTML = `<div class="panel" style="display:grid;gap:12px">
+    <span class="eyebrow">${hits.length} result${hits.length === 1 ? "" : "s"} for “${esc(q)}”</span>
+    <div class="results">${hits.map(([, e, l]) => `<a class="result" href="#${e.id}"><b>${hl(e.name)}</b><span class="s">${hl(l.length > 180 ? l.slice(0, 180) + "…" : l)}</span></a>`).join("") || `<p class="muted">Nothing matches. Try a shorter word, or a name.</p>`}</div></div>`;
+}
+
+function route() {
+  const id = decodeURIComponent(location.hash.slice(1)) || "home";
+  const e = byId[id];
+  if (e) renderEntry(e); else renderHome();
+  renderRail(e ? id : "home");
+  if (matchMedia("(max-width: 820px)").matches) $("railWrap").open = false;
+  window.scrollTo({ top: 0 });
+}
+$("q").addEventListener("input", () => { const q = $("q").value.trim(); if (q) renderSearch(q); else route(); });
+window.addEventListener("hashchange", () => { $("q").value = ""; route(); });
+$("updated").textContent = `Story bible · updated through ${B.updated}`;
+if (matchMedia("(max-width: 820px)").matches) $("railWrap").open = false;
+route();
+})();
+</script>
