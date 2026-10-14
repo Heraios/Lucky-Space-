@@ -81,9 +81,9 @@ window.BIBLE = {
     { id: "graugrey", cat: "tube-people", name: "Papa Graugrey", tag: "Grafin's father · Rejuvenant · hydroponics", src: ["grafin-1"],
       sections: [
         ["Looks", [
-          "Small: the same height as Grafin (by evening he has to stretch a little to reach Grafin's shoulder). Cherubic.",
+          "Small: the same height as Grafin (by evening he has to stretch a little to reach Grafin's shoulder). Cherubic. His childlike look is standard for [[rejuvenants]].",
           "Blond at breakfast; \"white hair\" at 17:30 (see continuity notes).",
-          "Pale red eyes, a mix of biotech and cybernetics, as is his whole body. Could take a coilgun round on low power.",
+          "Pale red eyes, a mix of biotech and cybernetics, as is his whole body. Could take a coilgun round on low power. (Not yet known whether that armour-grade build is normal for Rejuvenants or comes from his own past.)",
           "Smells of coffee and the orange-scented soap he uses to hide the smoke."
         ]],
         ["Life", [
@@ -434,9 +434,12 @@ window.BIBLE = {
     { id: "provisioners", cat: "faiths", name: "Provisioners", tag: "Order", src: ["grafin-1"],
       sections: [["So far", ["Member: [[vorst|Teacher Vorst]]."]]] },
     { id: "rejuvenants", cat: "faiths", name: "Rejuvenants", tag: "Order", src: ["grafin-1"],
-      sections: [["So far", [
-        "Member: [[graugrey]], who looks childlike. Rejuvenant-cut shirts: pale blue flowers on grey.",
-        "Rejuvenant–Hound couples draw gossip: \"Hound Tramso's toy,\" which Grafin knows is a bad word."
+      sections: [["From the author", [
+        "All Rejuvenants have a childlike presentation. It's a defining trait of the order, not something specific to Graugrey."
+      ]], ["So far", [
+        "Member: [[graugrey]]. Rejuvenant-cut clothes are made for small bodies: Graugrey's spare shirts (pale blue flowers on grey) fit eleven-year-old Grafin.",
+        "Rejuvenant–Hound couples draw gossip: \"Hound Tramso's toy,\" which Grafin knows is a bad word. Since every Rejuvenant looks like a child, this is prejudice about the order and the pairing, not about Graugrey alone.",
+        "Dekker mocks Graugrey for looking like a kid *and being a dad*, which suggests Rejuvenants raising children is unusual."
       ]]] },
     { id: "hounds", cat: "faiths", name: "Hounds", tag: "Order · soldiers", src: ["grafin-1"],
       sections: [["So far", [
@@ -677,6 +680,8 @@ window.BIBLE = {
   questions: [
     "What is Quiet-Temple, and is Herelty in care?",
     "What is The Dreamer?",
+    "Is Graugrey's armour-grade body normal for Rejuvenants, or from his own history (with Tramso, the war, the New Fire)?",
+    "Are the Tube's gods and orders deliberately based on the Greek underworld? (Father of Riches = Plouton/Hades, Hounds = Cerberus, Shades, Furies, Oathbound = the Styx, Katabasii = descent, and Rejuvenants = Persephone/Kore, the maiden of spring.)",
     "Which of the Six Gods does each Tube order belong to? Is \"Katabasii\" also an order?",
     "What does the L in KLB stand for?",
     "Is the Electric Saints the Martian religious boy band Kahlun loves?",
