@@ -192,7 +192,7 @@ function renderHome() {
     </div>
     <section class="panel" style="display:grid;gap:12px">
       <h3>Chapters</h3>
-      ${B.chapters.map(c => `<div class="chapter"><b>${esc(c.title)}</b><span class="meta">Point of view: ${rich(`[[${c.pov}]]`)}</span><p style="max-width:70ch">${rich(c.summary)}</p></div>`).join("")}
+      ${B.chapters.map(c => `<div class="chapter"><b>${esc(c.title)}</b><span class="meta">Point of view: ${rich(`[[${c.pov}]]`)}${c.when ? ` · ${esc(c.when)}` : ""}</span><p style="max-width:70ch">${rich(c.summary)}</p></div>`).join("")}
     </section>
     <section class="panel" style="display:grid;gap:12px">
       <div><h3>Continuity notes</h3><p class="muted" style="margin-top:6px;font-size:15px">Places where the text disagrees with itself or with the physics. Yours to decide; some may be intentional.</p></div>

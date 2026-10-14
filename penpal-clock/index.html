@@ -173,9 +173,9 @@ details summary { cursor: pointer; color: var(--ink); font-weight: 700; }
           <button type="button" data-step="1">+1 d</button><button type="button" data-step="30">+30 d</button>
         </div>
       </div>
-      <div class="field"><label for="lon">Kahlun's longitude °E</label><input id="lon" type="number" min="-180" max="360" step="1" value="0"></div>
+      <div class="field"><label for="lon">Kahlun's longitude °E</label><input id="lon" type="number" min="-180" max="360" step="1" value="70"></div>
       <div class="field"><label>Kahlun's hemisphere</label>
-        <div class="seg" id="hemi"><button type="button" data-h="N" aria-pressed="true">North</button><button type="button" data-h="S" aria-pressed="false">South</button></div>
+        <div class="seg" id="hemi"><button type="button" data-h="N" aria-pressed="false">North</button><button type="button" data-h="S" aria-pressed="true">South</button></div>
       </div>
     </div>
     <p class="warnline" id="rangeWarn" hidden>The calculations cover AD 16000–16100. Dates outside that are clamped.</p>
@@ -433,7 +433,7 @@ const partOfDay = h => h < 5 ? "night" : h < 7 ? "dawn" : h < 12 ? "morning" : h
 const $ = id => document.getElementById(id);
 const store = { get(k, d) { try { const v = localStorage.getItem("ppc." + k); return v === null ? d : JSON.parse(v); } catch { return d; } },
                 set(k, v) { try { localStorage.setItem("ppc." + k, JSON.stringify(v)); } catch {} } };
-const S = { jd: store.get("jd", jdFromParts(16008, 3, 29, 12, 0)), lon: store.get("lon", 0), hemi: store.get("hemi", "N"), dir: store.get("dir", "KG"), reply: store.get("reply", 20) };
+const S = { jd: store.get("jd", jdFromParts(16008, 3, 29, 12, 0)), lon: store.get("lon", 70), hemi: store.get("hemi", "S"), dir: store.get("dir", "KG"), reply: store.get("reply", 20) };
 let yearCache = null;
 
 MONTHS.forEach((m, i) => { const o = document.createElement("option"); o.value = i; o.textContent = m; $("month").appendChild(o); });
