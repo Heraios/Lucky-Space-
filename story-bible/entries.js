@@ -415,16 +415,19 @@ window.BIBLE = {
     // ================= FAITHS =================
     { id: "six-gods", cat: "faiths", name: "The Six Gods", tag: "The Tube's gods", src: ["grafin-1"],
       sections: [
+        ["From the author", [
+          "The Six Gods are the six worlds of the Pluto system: Pluto, Charon, Styx, Nix, Kerebros and Hydra. (The real moon is spelled Kerberos; Kerebros may be an in-world spelling. To confirm.)"
+        ]],
         ["What the text shows", [
           "Used in expressions: \"The Six Gods themselves could not compel enthusiasm for this hour.\"",
           "Run the genetic lottery; see [[birth-lottery]].",
           "Take turns running Climate Control \"when they get bored.\" Named so far: the [[father-of-riches]].",
           "People can be initiated into their god's Mysteries."
         ]],
-        ["Orders seen", ["[[furies]] · [[shades]] · [[oathbound]] · [[provisioners]] · [[rejuvenants]] · [[hounds]]. Which god each belongs to isn't stated yet."]]
+        ["Orders seen", ["[[furies]] · [[shades]] · [[oathbound]] · [[provisioners]] · [[rejuvenants]] · [[hounds]]. Six gods and six orders. Which god each belongs to isn't stated yet; see the questions on the overview page for a proposed pairing."]]
       ] },
     { id: "father-of-riches", cat: "faiths", name: "The Father of Riches", tag: "One of the Six Gods", src: ["grafin-1", "kahlun-1"],
-      sections: [["So far", ["Currently running The Tube's Climate Control: \"winter-themed\", dim, not cold, sometimes snow. Still doing winter on Day 2."]]] },
+      sections: [["So far", ["Almost certainly Pluto: \"Pluto\" comes from Plouton, the giver of riches. Currently running The Tube's Climate Control: \"winter-themed\", dim, not cold, sometimes snow. Still doing winter on Day 2."]]] },
     { id: "furies", cat: "faiths", name: "Furies", tag: "Order", src: ["grafin-1"],
       sections: [["So far", ["Members: [[pella]] (natborn, old family), [[tellani|Teacher Tellani]]. Some brag about lineage from the Founders. \"Furies and Shades always stick together.\""]]] },
     { id: "shades", cat: "faiths", name: "Shades", tag: "Order", src: ["grafin-1"],
@@ -681,8 +684,10 @@ window.BIBLE = {
     "What is Quiet-Temple, and is Herelty in care?",
     "What is The Dreamer?",
     "Is Graugrey's armour-grade body normal for Rejuvenants, or from his own history (with Tramso, the war, the New Fire)?",
-    "Are the Tube's gods and orders deliberately based on the Greek underworld? (Father of Riches = Plouton/Hades, Hounds = Cerberus, Shades, Furies, Oathbound = the Styx, Katabasii = descent, and Rejuvenants = Persephone/Kore, the maiden of spring.)",
-    "Which of the Six Gods does each Tube order belong to? Is \"Katabasii\" also an order?",
+    "Proposed pairing of gods and orders, from the myths behind the names. Which are right? Pluto (Plouton, giver of riches) → Provisioners · Charon (ferryman of the dead) → Shades · Styx (the river of oaths) → Oathbound · Nix (Night, mother of the Furies in Aeschylus) → Furies · Kerebros (the underworld's dog) → Hounds · Hydra (regrows its heads) → Rejuvenants.",
+    "Is The Dreamer connected to Nix? (In Greek myth Night is the mother of Sleep and Dreams.)",
+    "Is \"Kerebros\" the in-world spelling, or should it be Kerberos?",
+    "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six orders, it probably isn't an order.)",
     "What does the L in KLB stand for?",
     "Is the Electric Saints the Martian religious boy band Kahlun loves?",
     "How do God-Shall-Be-Built, the Mortuary Cult and the Sadistic-Dialectic fit together: one religion with schools, or separate ones?",
