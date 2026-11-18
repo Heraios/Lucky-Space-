@@ -181,7 +181,8 @@ window.BIBLE = {
      "From the author",
      [
       "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen.",
-      "His marriage to Tramso is a cross-syndicate marriage, which is subversive on Pluto; one involving a Rejuvenant draws the worst reactions."
+      "His marriage to Tramso is a cross-syndicate marriage, which is subversive on Pluto; one involving a Rejuvenant draws the worst reactions.",
+      "He chose to become a Rejuvenant as an adult. His armour-grade body is standard for the syndicate."
      ]
     ],
     [
@@ -189,7 +190,7 @@ window.BIBLE = {
      [
       "Small: just a little shorter than Grafin, who has started to outgrow him; Graugrey has to stretch a little to reach his shoulder. Cherubic. His childlike look is standard for [[rejuvenants]].",
       "Blond. After work: a streak of dried nutrient solution in his hair.",
-      "Pale red eyes, a mix of biotech and cybernetics, as is his whole body. Could take a coilgun round on low power. (Not yet known whether that armour-grade build is normal for Rejuvenants or comes from his own past.)",
+      "Pale red eyes, a mix of biotech and cybernetics, as is his whole body. Could take a coilgun round on low power, which is standard for Rejuvenants.",
       "Smells of coffee and the orange-scented soap he uses to hide the smoke."
      ]
     ],
@@ -1118,7 +1119,11 @@ window.BIBLE = {
      [
       "Their god is the Serpent (Hydra).",
       "All Rejuvenants have a childlike presentation. It's a defining trait of the syndicate, not something specific to Graugrey.",
-      "A cross-syndicate couple involving a Rejuvenant is seen as the \"worst\" kind, because the Rejuvenant body invites the ugliest gossip. That is what Dekker's mother's \"toy\" line is doing."
+      "A cross-syndicate couple involving a Rejuvenant is seen as the \"worst\" kind, because the Rejuvenant body invites the ugliest gossip. That is what Dekker's mother's \"toy\" line is doing.",
+      "People become Rejuvenants voluntarily, as adults: it is a conversion into a childlike body.",
+      "The armour-grade biotech and cybernetic body (Graugrey's could take a coilgun round on low power) is standard for Rejuvenants. They look the most vulnerable and are among the hardest to hurt.",
+      "Rejuvenants can leave the syndicate, but rarely do.",
+      "How rejuvenation affects the mind is \"complicated\" (to be explained)."
      ]
     ],
     [
@@ -2380,7 +2385,6 @@ window.BIBLE = {
   "Will Dramari be taken for a Rejuvenant, now that she's an adult in a child's body in the Tube?",
   "Will Dramari's story cross Grafin's? Counselors Ferun and Miran are both Oathbound and both write everything down.",
   "What is Quiet-Temple, and is Herelty in care?",
-  "Is Graugrey's armour-grade body normal for Rejuvenants, or from his own history (with Tramso, the war, the New Fire)?",
   "Is \"Kerebros\" the in-world spelling, or should it be Kerberos?",
   "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six syndicates, it probably isn't a syndicate.)",
   "What does the L in KLB stand for?",
@@ -2390,6 +2394,8 @@ window.BIBLE = {
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
   "How old are Tramso, Graugrey, Gratiustar and Juliandra?",
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
-  "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?"
+  "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?",
+  "How does becoming a Rejuvenant affect the mind? (\"That's complicated.\")",
+  "Why did Graugrey become a Rejuvenant, and when relative to meeting Tramso?"
  ]
 };
