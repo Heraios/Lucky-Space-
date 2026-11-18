@@ -182,7 +182,8 @@ window.BIBLE = {
      [
       "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen.",
       "His marriage to Tramso is a cross-syndicate marriage, which is subversive on Pluto; one involving a Rejuvenant draws the worst reactions.",
-      "He chose to become a Rejuvenant as an adult. His armour-grade body is standard for the syndicate."
+      "He chose to become a Rejuvenant as an adult. His armour-grade body is standard for the syndicate.",
+      "His god, the [[the-serpent|Serpent]], is a god of agriculture (his work) and of contrariness (his marriage)."
      ]
     ],
     [
@@ -966,7 +967,8 @@ window.BIBLE = {
       "The gods and their syndicates: the Father of Riches (Pluto) → [[furies]] · the Lady of Night (Nix) → [[shades]] · the Ferryman (Charon) → [[provisioners]] · the Oathkeeper (Styx) → [[oathbound]] · the Guard Dog (Kerebros) → [[hounds]] · the Serpent (Hydra) → [[rejuvenants]].",
       "Each god has a syndicate. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive.",
       "The gods speak to people directly through simulation: a god's Mysteries are simulations. Initiates sit at the high table in the school cafeteria.",
-      "The Six Gods did not act against [[the-dreamer|the Dreamer]] when the [[pseudea|Pseudea]] approached. [[tavi]] and [[dramari]] saved the Tube."
+      "The Six Gods did not act against [[the-dreamer|the Dreamer]] when the [[pseudea|Pseudea]] approached. [[tavi]] and [[dramari]] saved the Tube.",
+      "The six syndicates are Plutonian ethnic, religious and vocational groups. Each, at least at first, began as exiles from somewhere else: Pluto is \"space Australia.\" The [[rejuvenants]] are the newest."
      ]
     ],
     [
@@ -1109,7 +1111,7 @@ window.BIBLE = {
    "id": "rejuvenants",
    "cat": "faiths",
    "name": "Rejuvenants",
-   "tag": "Syndicate · Hydra",
+   "tag": "Syndicate · Hydra · the newest",
    "src": [
     "grafin-1"
    ],
@@ -1123,7 +1125,12 @@ window.BIBLE = {
       "People become Rejuvenants voluntarily, as adults: it is a conversion into a childlike body.",
       "The armour-grade biotech and cybernetic body (Graugrey's could take a coilgun round on low power) is standard for Rejuvenants. They look the most vulnerable and are among the hardest to hurt.",
       "Rejuvenants can leave the syndicate, but rarely do.",
-      "How rejuvenation affects the mind is \"complicated\" (to be explained)."
+      "How rejuvenation affects the mind is \"complicated\" (to be explained).",
+      "Origin: a cartel of about 900 Ceresians who tried to subvert [[ceres|Ceres]]'s youth-weighted e-democracy by continuously transferring into new child clone bodies and fabricating identities, so as not to lose voting power. They were exiled to Pluto.",
+      "Today: the founders' descendants, plus people who joined later for religious, ideological or psychological reasons. A collective trans-age, Peter Pan identity, held partly out of spite and group loyalty.",
+      "Their god is [[the-serpent|the Serpent]].",
+      "A stigmatised ethno-religious minority: their origin isn't \"cool\" like the other five syndicates', they are the newest, and an uncanny-valley childlike biotech-cyborg presentation is \"a bit much\" even by 161st-century transhuman standards.",
+      "Their main source of new recruits is people drawn to living in a childlike body, for whatever reason."
      ]
     ],
     [
@@ -1132,6 +1139,29 @@ window.BIBLE = {
       "Member: [[graugrey]]. Rejuvenant-cut clothes are made for small bodies: Graugrey's spare shirts (pale blue flowers on grey) fit eleven-year-old Grafin.",
       "Rejuvenant–Hound couples draw gossip: \"Hound Tramso's toy,\" which Grafin knows is a bad word. Since every Rejuvenant looks like a child, this is prejudice about the syndicate and the pairing, not about Graugrey alone.",
       "Dekker mocks Graugrey for looking like a kid *and being a dad*, which suggests Rejuvenants raising children is unusual."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "the-serpent",
+   "cat": "faiths",
+   "name": "The Serpent",
+   "tag": "Hydra · god of the Rejuvenants",
+   "src": [],
+   "sections": [
+    [
+     "From the author",
+     [
+      "One of the [[six-gods|Six Gods]] (Hydra), god of the [[rejuvenants]].",
+      "A reformed Human Extinction Cult AI. It thinks it is a Hydra, the serpent that eats the sun (in Egyptian myth that serpent is Apep/Apophis), and/or the biblical Satan.",
+      "A fertility god of agriculture, and also of sin, subversion and being deliberately contrary."
+     ]
+    ],
+    [
+     "Connections",
+     [
+      "[[graugrey]] has tended a hydroponics bay for 85 years: his god's domain. His cross-syndicate marriage fits a god of contrariness."
      ]
     ]
    ]
@@ -2206,6 +2236,29 @@ window.BIBLE = {
      ]
     ]
    ]
+  },
+  {
+   "id": "ceres",
+   "cat": "places",
+   "name": "Ceres",
+   "tag": "Dwarf planet in the Belt",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Has a youth-weighted e-democracy. The founding [[rejuvenants]] were Ceresians who tried to game it with child clone bodies and fake identities, and were exiled."
+     ]
+    ],
+    [
+     "On the page",
+     [
+      "Tourists come to Mars from Ceres; one was concussed trying to pet a [[zentelos]]."
+     ]
+    ]
+   ]
   }
  ],
  "timeline": [
@@ -2396,6 +2449,10 @@ window.BIBLE = {
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
   "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?",
   "How does becoming a Rejuvenant affect the mind? (\"That's complicated.\")",
-  "Why did Graugrey become a Rejuvenant, and when relative to meeting Tramso?"
+  "Why did Graugrey become a Rejuvenant, and when relative to meeting Tramso?",
+  "Do Rejuvenants have children of their own? (The founders have \"descendants.\")",
+  "How do Rejuvenants and Plutonian society guard against people who join for the worst reasons?",
+  "Is the Serpent mixing up the Hydra and Apep deliberately, a god confused about its own myth?",
+  "Will the Rejuvenants try to recruit Dramari?"
  ]
 };
