@@ -389,7 +389,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "Like many [[necrophages]], Kahlun wears a very large amount of bone. To Martians, a kid in full regalia is adorable: devout, grieving, and loved."
+      "Like many [[necrophages]], Kahlun wears a very large amount of bone. To Martians, a kid in full regalia is adorable: devout, grieving, and loved.",
+      "He hasn't done his animal pilgrimage yet."
      ]
     ],
     [
@@ -510,6 +511,12 @@ window.BIBLE = {
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Her title \"Birthing-Mother\" suggests she carried Kahlun, as about 60% of Martian children are carried (see [[natalists]])."
+     ]
+    ],
     [
      "So far",
      [
@@ -1357,7 +1364,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "The intense wing of the [[mortuary-cult|Mortuary Cult]], regional to the [[thornwatch]]. They extend communion from the dead to the living by eating vat-grown tissue donated by family members, daily. Kahlun's family are Necrophages."
+      "The intense wing of the [[mortuary-cult|Mortuary Cult]], regional to the [[thornwatch]]. They extend communion from the dead to the living by eating vat-grown tissue donated by family members, daily. Kahlun's family are Necrophages.",
+      "Two subtypes, which can overlap. Ritualists are super-devout Mortuary Cultists, seen by most Martians as a bit zealous. Gourmands do it for the taste and are seen as decadent and weird."
      ]
     ],
     [
@@ -1408,6 +1416,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "A living person: the Martian Queen. Some worship her as a messiah or as God (see [[senyarists]]), which makes her very uncomfortable."
+     ]
+    ],
+    [
      "So far",
      [
       "Kahlun calls her \"our Queen.\" [[ramba]] is her eighty-four-times great-grandson.",
@@ -1448,6 +1462,77 @@ window.BIBLE = {
      "So far",
      [
       "A failed coup to reform the [[new-fire|New Fire]] from within. Its martyrs were absorbed and converted."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "martian-movements",
+   "cat": "culture",
+   "name": "Martian movements",
+   "tag": "Advocacy groups, not parties",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Mars has no political parties. Its non-mainstream groups are advocacy movements: lifestyle, political and religious. They aren't exclusive; one person can belong to several.",
+      "[[necrophages]] · [[senyarists]] · [[blood-iron-soil|Blood-Iron-Soil]] · [[natalists]] · [[wildkin]]. Others exist (Purifiers, for example, are named in Kahlun's school texts).",
+      "Example: a Wildkin Senyarist Natalist Necrophage in Blood-Iron-Soil would be a wolf who thinks more people should have natural babies, eats human flesh recreationally, and thinks Mars needs a stronger government with the Senyara, the Messiah, taking a bigger role."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "senyarists",
+   "cat": "culture",
+   "name": "Senyarists",
+   "tag": "Worshippers of the Senyara",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Worship the [[senyara|Senyara]], either as a messianic figure or literally as God. They advocate for her to take a larger role in politics and society.",
+      "Mostly very devout [[god-builders|God-Builders]]. Seen as kooky but mostly harmless. They make the Senyara very uncomfortable."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "blood-iron-soil",
+   "cat": "culture",
+   "name": "The Blood-Iron-Soil Movement",
+   "tag": "Mars's nearest thing to a nationalist party",
+   "src": [],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Advocates a stronger legal government for Mars with more oversight of communities, especially in military matters, up to a professional military.",
+      "By our standards, left-of-centre statists; by Martian standards, authoritarian. Seen as alarmist, a slippery slope to authoritarianism.",
+      "Common among Emergency Services and militia veterans and people who lived through [[jovian-raids|Jovian raids]]."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "natalists",
+   "cat": "culture",
+   "name": "Natalists",
+   "tag": "Advocates of natural birth",
+   "src": [],
+   "sections": [
+    [
+     "From the author",
+     [
+      "A fairly mainstream movement that wants natural gestation and birth to remain an option. They don't consider vat-grown people inferior.",
+      "About 60% of Martian children are carried in a natural womb at least part of the time.",
+      "Contrast: on Pluto most children are lottery-assembled, and being natborn (like [[pella]]) is a mark of the old elite."
      ]
     ]
    ]
@@ -2516,7 +2601,9 @@ window.BIBLE = {
   "Will the Rejuvenants try to recruit Dramari?",
   "Was Dekker's mother in Tramso and Graugrey's cohort?",
   "Are natborn children like Pella born on the lottery schedule too, so they join a cohort?",
-  "Has Kahlun done an animal pilgrimage yet, or is there an age for it?",
-  "What is Hannet's mother's name, and what kind of wolf body does she live in?"
+  "What is Hannet's mother's name, and what kind of wolf body does she live in?",
+  "Is Kahlun's family Ritualist Necrophage (Belindrama is a ritualist)?",
+  "Do any of Kahlun's moms lean toward Blood-Iron-Soil (Juliandra, Emergency Services; Gratiustar, Space Fleet)?",
+  "Does Ramba's family's pride in the Senyara edge into Senyarism? Is Elder Yelina one?"
  ]
 };
