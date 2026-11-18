@@ -612,6 +612,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "His father is a rehabilitated former Jovian: proof that a Jovian can become a person again."
+     ]
+    ],
+    [
      "So far",
      [
       "Bigger than most village kids, from his father's Jovian combat-slave engineering. Pale skin with faintly glowing silver fungal lines. Voice is breaking.",
@@ -1496,6 +1502,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "Also called the Solar Dark Age. After Earth's destruction, warlords and famine cut humanity to about 230,000 people. [[marcus-jove|Marcus Jove]] lived through it."
+     ]
+    ],
+    [
      "So far",
      [
       "\"Earth is Dead. Mars Remains.\"",
@@ -1507,14 +1519,53 @@ window.BIBLE = {
    ]
   },
   {
-   "id": "new-fire",
+   "id": "marcus-jove",
    "cat": "faiths",
-   "name": "The New Fire",
-   "tag": "Marcus Jove, now a process",
+   "name": "Marcus Jove",
+   "tag": "Born mid-2300s · founder of the New Fire",
    "src": [
     "grafin-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Born in the mid-2300s on Earth, in the state that evolved from the EU. A doctor and scientist: the main geneticist on the project that cured the last cancers, and he gets most of the credit.",
+      "In the Solar Dark Age (the Dying 800) after Earth's destruction, when humanity fell to about 230,000 people through warlords and famine, he tried to hold things together and watched people fail again and again.",
+      "Took his surname as a divine sign that he was God: Jove, Jupiter, Zeus. Believed in \"the evils of free will\" and set out to replace humanity with copies of the one person he trusted: himself. Later a Transhuman God-King. Now dead.",
+      "\"Cancers were cells that refuse to cooperate… I cured cancer. Now I will cure humanity.\"",
+      "\"I do not hate humanity. I am humanity's perfected form. When you are all me, you will understand.\"",
+      "\"If God is real, God is alone, the only consciousness that truly exists… I will make God real by becoming the only mind.\""
+     ]
+    ],
+    [
+     "Mirrors",
+     [
+      "The opposite of [[god-builders|God-Shall-Be-Built]] (God built by many people) and of the [[senyara|Senyara]], who wears hundreds of the dead she refuses to forget."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "new-fire",
+   "cat": "faiths",
+   "name": "The New Fire",
+   "tag": "The Jovians: Marcus Jove and his extensions",
+   "src": [
+    "grafin-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "The Jovians call themselves only the New Fire, \"that will burn away everything and leave purity\". No political name: there is no state that serves a population, only [[marcus-jove|Marcus Jove]] and his extensions. \"A cancer wearing government-shaped clothing.\"",
+      "Goal: to make Jove the only person, billions of copies comprising all of humanity. It behaves like instrumental convergence: everything serves gathering more minds and bodies into the Fire.",
+      "No agent runs it. Jove is dead; the Princes are themselves indoctrinated slaves; the AI copies of Jove are stuck in the 11000s. The apparatus runs on momentum. Every Jovian is a person trapped by it.",
+      "Economically pointless as slavery, but the Jovian moons and Jupiter's energy give it real resource autarky. Raiding for slaves is the point.",
+      "Castes (all clones, spliced with fresh genetic material from abductees): Princes, clones of Marcus himself · Iron-Blooded, clones of his four loyal sons · Overseers, clones of his loyal wife · \"Citizens\", clones of his followers from his Transhuman God-King era · Conditioned, captives from elsewhere indoctrinated as saboteurs · Fast Batch and Slow Batch, clones of his disloyal sons and wife used as shock troops.",
+      "Every Jovian carries an AI copy of Jove in their head as an artificial conscience."
+     ]
+    ],
     [
      "So far",
      [
@@ -1801,6 +1852,12 @@ window.BIBLE = {
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "The raids exist to take abductees: new minds and bodies for the [[new-fire|New Fire]], and fresh genes for its clone lines."
+     ]
+    ],
     [
      "So far",
      [
@@ -2484,6 +2541,14 @@ window.BIBLE = {
    "text": "Ellanore, the Senyara, uploads (at about 90)."
   },
   {
+   "when": "mid 2300s",
+   "text": "[[marcus-jove|Marcus Jove]] is born on Earth. A cloned mammoth kills a zoo visitor (a story the Senyara later confuses with Jurassic Park)."
+  },
+  {
+   "when": "after 2350",
+   "text": "Earth is destroyed. The Dying 800 (Solar Dark Age) cuts humanity to about 230,000."
+  },
+  {
    "when": "about 6600",
    "text": "[[herclawun-jove|Herclawun Jove]] is born."
   },
@@ -2494,6 +2559,14 @@ window.BIBLE = {
   {
    "when": "11000s",
    "text": "Vorin sits on the Advisory Council on Digital Ethics."
+  },
+  {
+   "when": "11000s",
+   "text": "The AI copies of Jove in every Jovian's head stop developing."
+  },
+  {
+   "when": "about 13000",
+   "text": "The Attempted Jovian Reformation fails (about 3,000 years before the story)."
   },
   {
    "when": "about 15873",
@@ -2688,6 +2761,12 @@ window.BIBLE = {
    "title": "Typos spotted: Interlude",
    "where": "Interlude",
    "text": "\"in an less than half an hour\" → in less than · \"a Plutonian therapists\" → therapist · \"thireteen\" → thirteen · \"come?Has\" needs a space · \"Every all thirty-four million\" → Every one of the thirty-four million."
+  },
+  {
+   "sev": "question",
+   "title": "How aware are the Jove AIs?",
+   "where": "Author's notes",
+   "text": "Described as \"barely-sentient\" and as \"non-sentient\". Pick one; it matters if a character ever talks to one."
   }
  ],
  "questions": [
@@ -2701,7 +2780,6 @@ window.BIBLE = {
   "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six syndicates, it probably isn't a syndicate.)",
   "What does the L in KLB stand for?",
   "Is the Electric Saints the Martian religious boy band Kahlun loves?",
-  "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
   "How old are Gratiustar and Juliandra?",
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
@@ -2717,8 +2795,11 @@ window.BIBLE = {
   "What is Hannet's mother's name, and what kind of wolf body does she live in?",
   "Is Elder Yelina a Senyarist?",
   "What was the Dying 800, and how did Earth die?",
-  "Is Herclawun Jove related to Marcus Jove (the New Fire) or to the Jovians?",
   "Where does the Senyara vignette go in the book?",
-  "What does being Mars's \"queen\" involve day to day, given her role is symbolic?"
+  "What does being Mars's \"queen\" involve day to day, given her role is symbolic?",
+  "Is the Jovian Look Marcus Jove's face? If so, why does Grafin have it: does the Tube's lottery use Jovian genetic material?",
+  "Which caste was Merschal's father?",
+  "Is Herclawun Jove a former Jovian, a descendant, or unrelated?",
+  "Who did Tramso fight, and when?"
  ]
 };
