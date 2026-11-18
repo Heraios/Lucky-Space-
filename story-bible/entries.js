@@ -614,7 +614,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "His father is a rehabilitated former Jovian: proof that a Jovian can become a person again."
+      "His father is a rehabilitated former Jovian: proof that a Jovian can become a person again.",
+      "Likely to meet the \"only understands violence\" stereotype because of his size; see [[jovian-defectors]]."
      ]
     ],
     [
@@ -1871,6 +1872,31 @@ window.BIBLE = {
    ]
   },
   {
+   "id": "jovian-defectors",
+   "cat": "culture",
+   "name": "Jovian defectors and their descendants",
+   "tag": "Prejudice, sharp and diffuse",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Defectors and rescued Jovians often meet ugly stereotypes from free peoples: that their conditioning might take over and they'll \"snap\"; that they're stupid, or only understand violence because they were combat slaves.",
+      "Or they get patronising pity, or are held up as wonderful success stories.",
+      "Against descendants the prejudice is diffuse: the diaspora has existed for thousands of years, and the [[jovian-look|Jovian Look]] is now just a common human phenotype (about 15% of humanity descends from Jove)."
+     ]
+    ],
+    [
+     "On the page",
+     [
+      "[[merschal]]'s father is a rehabilitated slave-soldier; adults have told the boys about the scandal \"mostly politely, sometimes less so.\""
+     ]
+    ]
+   ]
+  },
+  {
    "id": "grelem-preftom",
    "cat": "culture",
    "name": "Grelem & Preftom",
@@ -2020,7 +2046,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "Likely Marcus Jove's features, common because about 15% of humanity descends from him through defectors. It explains why lottery-assembled Grafin has it."
+      "Likely Marcus Jove's features, common because about 15% of humanity descends from him through defectors. It explains why lottery-assembled Grafin has it.",
+      "A common human phenotype, not much stigmatised in itself. The sharper prejudice is reserved for known defectors and rescued Jovians; see [[jovian-defectors]]."
      ]
     ],
     [
@@ -2808,6 +2835,6 @@ window.BIBLE = {
   "Which caste was Merschal's father?",
   "Is Herclawun Jove a former Jovian, a descendant, or unrelated?",
   "Who did Tramso fight, and when?",
-  "Does the Jovian Look carry any stigma, or is it a neutral, common face?"
+  "How do Kahlun's Blood-Iron-Soil-leaning moms feel about Merschal's father?"
  ]
 };
