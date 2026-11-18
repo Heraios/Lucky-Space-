@@ -690,6 +690,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "Her mother is a wolf: a [[wildkin|Wildkin]]. Hannet's jab that Kahlun doesn't \"have to be so religious all the time\" reads differently with that in mind."
+     ]
+    ],
+    [
      "So far",
      [
       "Last week: \"Isn't that a bit performative, Kahlun? You don't have to be so religious all the time.\""
@@ -1264,7 +1270,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "The low-key animism under the whole [[tmmrc|TMMRC]]: Mars itself, its animals, rivers, forests and maintenance AIs all have spirits and are holy."
+      "The low-key animism under the whole [[tmmrc|TMMRC]]: Mars itself, its animals, rivers, forests and maintenance AIs all have spirits and are holy.",
+      "Animal pilgrimage, months or years in an animal body, is a near-universal Martian religious practice; see [[wildkin]]."
      ]
     ],
     [
@@ -1441,6 +1448,38 @@ window.BIBLE = {
      "So far",
      [
       "A failed coup to reform the [[new-fire|New Fire]] from within. Its martyrs were absorbed and converted."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "wildkin",
+   "cat": "culture",
+   "name": "Wildkin and animal pilgrimage",
+   "tag": "Living in animal bodies",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Mars has a pilgrimage or vision-quest tradition: people spend time, from a few months to a few years, uploaded into an animal body (a wolf, for example) living in the forest. Most Martians do it for at least a few months, for religious reasons.",
+      "People who do it permanently are Wildkin. They range from those who splice in animal features to those who grow whole cyborg or engineered animal bodies and upload into them.",
+      "About 4% of Mars's population. A recognised subculture, not seen as bad by most Martians. Doing it long-term is what's strange.",
+      "[[hannet]]'s mother is a wolf."
+     ]
+    ],
+    [
+     "On the page",
+     [
+      "Kahlun's school texts list Wildkin among minority subcultures, beside [[necrophages]], Senyarists and Purifiers."
+     ]
+    ],
+    [
+     "Compared with Rejuvenants",
+     [
+      "Same technology and impulse as the [[rejuvenants]], opposite reception: Wildkin grew from a practice most Martians share, and an animal body resembles no protected group of people."
      ]
     ]
    ]
@@ -2476,6 +2515,8 @@ window.BIBLE = {
   "Is the Serpent mixing up the Hydra and Apep deliberately, a god confused about its own myth?",
   "Will the Rejuvenants try to recruit Dramari?",
   "Was Dekker's mother in Tramso and Graugrey's cohort?",
-  "Are natborn children like Pella born on the lottery schedule too, so they join a cohort?"
+  "Are natborn children like Pella born on the lottery schedule too, so they join a cohort?",
+  "Has Kahlun done an animal pilgrimage yet, or is there an age for it?",
+  "What is Hannet's mother's name, and what kind of wolf body does she live in?"
  ]
 };
