@@ -380,6 +380,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "Like many [[necrophages]], Kahlun wears a very large amount of bone. To Martians, a kid in full regalia is adorable: devout, grieving, and loved."
+     ]
+    ],
+    [
      "Looks",
      [
       "Short and stocky by Martian standards (bullies call him that); his Venusian father was \"radically shorter\" than his moms.",
@@ -625,7 +631,8 @@ window.BIBLE = {
      "Kahlun I",
      [
       "Insults Kahlun's grief and his Venusian father, then breaks down. Kahlun grounds him. He cuts mushrooms, takes half a dumpling, and apologises for the first time in eleven months.",
-      "\"Here I'm driving a meat puppet through molasses.\""
+      "\"Here I'm driving a meat puppet through molasses.\"",
+      "His jibe \"you dress up like you're going to a Temple funeral\" means full regalia: he mocks Kahlun as babyish and grieving at once."
      ]
     ]
    ]
@@ -1192,7 +1199,8 @@ window.BIBLE = {
      "From the author",
      [
       "Martians never call God simply \"God\". They use qualified epithets, an evolution of the Islamic tradition of the ninety-nine names.",
-      "Examples: God-That-Will-Come · God-We-Are-Building · God-in-the-Blood · God-of-Bone-and-Kin · the Oppositional God."
+      "Examples: God-That-Will-Come · God-We-Are-Building · God-in-the-Blood · God-of-Bone-and-Kin · the Oppositional God.",
+      "Also: God-in-Bone."
      ]
     ],
     [
@@ -1399,12 +1407,25 @@ window.BIBLE = {
   {
    "id": "garment-temple",
    "cat": "culture",
-   "name": "The garment-temple",
-   "tag": "Wearing your dead",
+   "name": "Ossuary garment temples",
+   "tag": "Wearing your dead, prettily",
    "src": [
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Called \"ossuary garment temples\" (\"garment-temple\" for short). Not morbid in context: great care goes into the arrangement, and they are made to look pretty.",
+      "Bones and hair are washed, cleaned and preserved in resins. Bones are capped with ceramic polymers. Cybernetics are polished and gilded. Everything is linked with silk ribbons carrying careful calligraphy: prayers about family and love that endures beyond death.",
+      "The palette is soft, gentle and pastel: baby blues, rose pinks, cream.",
+      "To Martians, wearing remains is cutesy, sincere and wholesome, like carrying a security blanket or a teddy, or keeping grandma's ashes on the mantelpiece. To outsiders it looks like a pastel serial killer.",
+      "Who wears a full suit made from a graveyard's worth of loved ones' bones, hair and old cybernetics (and their own previous bodies'): the very devout, the grieving, children, and people with a childish or cute personal aesthetic. A single [[dyozman|Dyozman']], like [[merschal]]'s, is more typical.",
+      "A Martian seeing a child in full regalia thinks: \"Oh my God-in-Bone. That child is so cute! They're so loved! Look how they honour their family.\"",
+      "A Martian adult in extensive gear reads as someone comforted by the dead, with a childish (by Martian standards) aesthetic, being earnest about it, like an adult who is really into Hello Kitty. Or a priest.",
+      "A \"Temple funeral\" is a full ossuary-regalia funeral."
+     ]
+    ],
     [
      "So far",
      [
@@ -1426,6 +1447,12 @@ window.BIBLE = {
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "A single Dyozman' is the typical amount of ossuary wear for most Martians."
+     ]
+    ],
     [
      "So far",
      [
@@ -2363,7 +2390,6 @@ window.BIBLE = {
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
   "How old are Tramso, Graugrey, Gratiustar and Juliandra?",
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
-  "When Ramba says \"a Temple funeral\", which tradition's temple does he mean?",
   "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?"
  ]
 };
