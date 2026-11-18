@@ -135,6 +135,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen."
+     ]
+    ],
+    [
      "Looks",
      [
       "Tall and broad. Braids in his salt-and-pepper hair and beard; grey at the temples, lines around his eyes.",
@@ -170,6 +176,12 @@ window.BIBLE = {
     "grafin-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen."
+     ]
+    ],
     [
      "Looks",
      [
