@@ -183,7 +183,8 @@ window.BIBLE = {
       "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen.",
       "His marriage to Tramso is a cross-syndicate marriage, which is subversive on Pluto; one involving a Rejuvenant draws the worst reactions.",
       "He chose to become a Rejuvenant as an adult. His armour-grade body is standard for the syndicate.",
-      "His god, the [[the-serpent|Serpent]], is a god of agriculture (his work) and of contrariness (his marriage)."
+      "His god, the [[the-serpent|Serpent]], is a god of agriculture (his work) and of contrariness (his marriage).",
+      "He joined because of \"age dysphoria\": he disliked looking like an adult, and feels right in his Rejuvenant body. Whatever he is \"carrying\" is a separate matter."
      ]
     ],
     [
@@ -1130,7 +1131,8 @@ window.BIBLE = {
       "Today: the founders' descendants, plus people who joined later for religious, ideological or psychological reasons. A collective trans-age, Peter Pan identity, held partly out of spite and group loyalty.",
       "Their god is [[the-serpent|the Serpent]].",
       "A stigmatised ethno-religious minority: their origin isn't \"cool\" like the other five syndicates', they are the newest, and an uncanny-valley childlike biotech-cyborg presentation is \"a bit much\" even by 161st-century transhuman standards.",
-      "Their main source of new recruits is people drawn to living in a childlike body, for whatever reason."
+      "Their main source of new recruits is people drawn to living in a childlike body, for whatever reason.",
+      "The technology exists to make a body look however someone wants. Wanting to look like a child is one of those wants; Graugrey's reason was \"age dysphoria.\""
      ]
     ],
     [
@@ -2449,7 +2451,7 @@ window.BIBLE = {
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
   "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?",
   "How does becoming a Rejuvenant affect the mind? (\"That's complicated.\")",
-  "Why did Graugrey become a Rejuvenant, and when relative to meeting Tramso?",
+  "When did Graugrey become a Rejuvenant, relative to meeting Tramso? And what is he \"carrying\", if not the reason he joined?",
   "Do Rejuvenants have children of their own? (The founders have \"descendants.\")",
   "How do Rejuvenants and Plutonian society guard against people who join for the worst reasons?",
   "Is the Serpent mixing up the Hydra and Apep deliberately, a god confused about its own myth?",
