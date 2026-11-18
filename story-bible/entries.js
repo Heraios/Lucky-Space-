@@ -954,7 +954,8 @@ window.BIBLE = {
      "From the author",
      [
       "The Six Gods are the six worlds of the Pluto system: Pluto, Charon, Styx, Nix, Kerebros and Hydra. (The real moon is spelled Kerberos; Kerebros may be an in-world spelling. To confirm.)",
-      "Each god has a syndicate: Furies, Shades, Oathbound, Provisioners, Rejuvenants, Hounds. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive."
+      "The gods and their syndicates: the Father of Riches (Pluto) → [[furies]] · the Lady of Night (Nix) → [[shades]] · the Ferryman (Charon) → [[provisioners]] · the Oathkeeper (Styx) → [[oathbound]] · the Guard Dog (Kerebros) → [[hounds]] · the Serpent (Hydra) → [[rejuvenants]].",
+      "Each god has a syndicate. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive."
      ]
     ],
     [
@@ -969,7 +970,7 @@ window.BIBLE = {
     [
      "Syndicates",
      [
-      "[[furies]] · [[shades]] · [[oathbound]] · [[provisioners]] · [[rejuvenants]] · [[hounds]]. Six gods and six syndicates. Which god each syndicate belongs to isn't stated yet; see the questions on the overview page for a proposed pairing."
+      "[[furies]] · [[shades]] · [[oathbound]] · [[provisioners]] · [[rejuvenants]] · [[hounds]]. Furies and Shades, the Father of Riches and the Lady of Night, \"always stick together.\""
      ]
     ]
    ]
@@ -978,16 +979,22 @@ window.BIBLE = {
    "id": "father-of-riches",
    "cat": "faiths",
    "name": "The Father of Riches",
-   "tag": "One of the Six Gods",
+   "tag": "Pluto · god of the Furies",
    "src": [
     "grafin-1",
     "kahlun-1"
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "The god of Pluto itself, and of the [[furies]], the old natborn families who claim descent from the Founders."
+     ]
+    ],
+    [
      "So far",
      [
-      "Almost certainly Pluto: \"Pluto\" comes from Plouton, the giver of riches. Currently running The Tube's Climate Control: \"winter-themed\", dim, not cold, sometimes snow. Still doing winter on Day 2."
+      "Currently running The Tube's Climate Control: \"winter-themed\", dim, not cold, sometimes snow. Still doing winter on Day 2."
      ]
     ]
    ]
@@ -996,11 +1003,17 @@ window.BIBLE = {
    "id": "furies",
    "cat": "faiths",
    "name": "Furies",
-   "tag": "Syndicate",
+   "tag": "Syndicate · Pluto",
    "src": [
     "grafin-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Their god is the [[father-of-riches|Father of Riches]] (Pluto)."
+     ]
+    ],
     [
      "So far",
      [
@@ -1013,11 +1026,17 @@ window.BIBLE = {
    "id": "shades",
    "cat": "faiths",
    "name": "Shades",
-   "tag": "Syndicate",
+   "tag": "Syndicate · Nix",
    "src": [
     "grafin-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Their god is the Lady of Night (Nix)."
+     ]
+    ],
     [
      "So far",
      [
@@ -1030,12 +1049,18 @@ window.BIBLE = {
    "id": "oathbound",
    "cat": "faiths",
    "name": "Oathbound",
-   "tag": "Syndicate",
+   "tag": "Syndicate · Styx",
    "src": [
     "grafin-1",
     "interlude-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Their god is the Oathkeeper (Styx)."
+     ]
+    ],
     [
      "So far",
      [
@@ -1048,12 +1073,18 @@ window.BIBLE = {
    "id": "provisioners",
    "cat": "faiths",
    "name": "Provisioners",
-   "tag": "Syndicate",
+   "tag": "Syndicate · Charon",
    "src": [
     "grafin-1",
     "interlude-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Their god is the Ferryman (Charon)."
+     ]
+    ],
     [
      "So far",
      [
@@ -1066,7 +1097,7 @@ window.BIBLE = {
    "id": "rejuvenants",
    "cat": "faiths",
    "name": "Rejuvenants",
-   "tag": "Syndicate",
+   "tag": "Syndicate · Hydra",
    "src": [
     "grafin-1"
    ],
@@ -1074,6 +1105,7 @@ window.BIBLE = {
     [
      "From the author",
      [
+      "Their god is the Serpent (Hydra).",
       "All Rejuvenants have a childlike presentation. It's a defining trait of the syndicate, not something specific to Graugrey.",
       "A cross-syndicate couple involving a Rejuvenant is seen as the \"worst\" kind, because the Rejuvenant body invites the ugliest gossip. That is what Dekker's mother's \"toy\" line is doing."
      ]
@@ -1092,11 +1124,17 @@ window.BIBLE = {
    "id": "hounds",
    "cat": "faiths",
    "name": "Hounds",
-   "tag": "Syndicate · soldiers",
+   "tag": "Syndicate · soldiers · Kerberos",
    "src": [
     "grafin-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Their god is the Guard Dog (Kerebros)."
+     ]
+    ],
     [
      "So far",
      [
@@ -2174,7 +2212,6 @@ window.BIBLE = {
   "Will Dramari's story cross Grafin's? Counselors Ferun and Miran are both Oathbound and both write everything down.",
   "What is Quiet-Temple, and is Herelty in care?",
   "Is Graugrey's armour-grade body normal for Rejuvenants, or from his own history (with Tramso, the war, the New Fire)?",
-  "Proposed pairing of gods and syndicates, from the myths behind the names. Which are right? Pluto (Plouton, giver of riches) → Provisioners · Charon (ferryman of the dead) → Shades · Styx (the river of oaths) → Oathbound · Nix (Night, mother of the Furies in Aeschylus) → Furies · Kerebros (the underworld's dog) → Hounds · Hydra (regrows its heads) → Rejuvenants.",
   "Is \"Kerebros\" the in-world spelling, or should it be Kerberos?",
   "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six syndicates, it probably isn't a syndicate.)",
   "What does the L in KLB stand for?",
