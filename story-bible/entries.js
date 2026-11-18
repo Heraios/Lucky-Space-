@@ -1150,9 +1150,87 @@ window.BIBLE = {
    ]
   },
   {
+   "id": "tmmrc",
+   "cat": "faiths",
+   "name": "The Martian Monotheistic Religious Complex (TMMRC)",
+   "tag": "Mars's five overlapping Post-Abrahamic traditions",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Five overlapping Post-Abrahamic traditions. Most Martians practise all of them at once and feel no tension between them, the way Daoism, Confucianism and Buddhism can stack.",
+      "1. [[god-builders|God-Builders]]: God does not exist yet and is being assembled through human kindness and ethical action.",
+      "2. [[mortuary-cult|Mortuary Cult]]: God is kin continuity; the dead stay with you through matter.",
+      "3. [[thunder-temple|Thunder and Lightning Temples]]: God manifests at the moment of sensory overwhelm.",
+      "4. [[dialectic|Sadistic Dialectic]]: God is truth born from friction and argument.",
+      "5. [[martian-animism|Animism]] underneath all of it: Mars itself, its animals, rivers, forests and maintenance AIs have spirits and are holy.",
+      "God is never called simply \"God\", always by a qualified epithet; see [[names-of-god]]."
+     ]
+    ],
+    [
+     "In Kahlun I",
+     [
+      "The Blazatrama household practises all five without comment: grace to God-Shall-Be-Built, the ossuary and dumplings, Belindrama's \"Thundering-God\", the Dialectic nod, and walking the forest as tending.",
+      "Belindrama also reads the ancient Qur'an. School texts describe minority subcultures: [[necrophages]], Wildkin, Senyarists, Purifiers."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "names-of-god",
+   "cat": "faiths",
+   "name": "The names of God",
+   "tag": "Epithets, in the tradition of the ninety-nine names",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "Martians never call God simply \"God\". They use qualified epithets, an evolution of the Islamic tradition of the ninety-nine names.",
+      "Examples: God-That-Will-Come · God-We-Are-Building · God-in-the-Blood · God-of-Bone-and-Kin · the Oppositional God."
+     ]
+    ],
+    [
+     "On the page",
+     [
+      "God-Shall-Be-Built (Belindrama's grace) · Thundering-God (Belindrama's oath)."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "martian-animism",
+   "cat": "faiths",
+   "name": "Martian animism",
+   "tag": "The spirits of Mars",
+   "src": [
+    "kahlun-1"
+   ],
+   "sections": [
+    [
+     "From the author",
+     [
+      "The low-key animism under the whole [[tmmrc|TMMRC]]: Mars itself, its animals, rivers, forests and maintenance AIs all have spirits and are holy."
+     ]
+    ],
+    [
+     "On the page",
+     [
+      "\"The forest needs feet on it\": children walking spread the [[symbiote]] that binds soil to regolith, and Kahlun treats the walk as a prayer.",
+      "Gratiustar: \"Zentelos are not\" a renewable resource. Foragers never take more than half of a mushroom colony."
+     ]
+    ]
+   ]
+  },
+  {
    "id": "god-builders",
    "cat": "faiths",
-   "name": "God-Shall-Be-Built",
+   "name": "God-Builders (God-Shall-Be-Built)",
    "tag": "Martian faith: a God that doesn't exist yet",
    "src": [
     "kahlun-1"
@@ -1161,6 +1239,7 @@ window.BIBLE = {
     [
      "From the author",
      [
+      "One of the five traditions of the [[tmmrc|TMMRC]]. God does not exist yet and is being assembled through human kindness and ethical action: process theology turned up to eleven.",
       "God-Shall-Be-Built is the Abrahamic God as imagined through a radically open process theology: a God that doesn't exist yet, and is being built. Not an AI."
      ]
     ],
@@ -1185,6 +1264,12 @@ window.BIBLE = {
     "interlude-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "One of the five traditions of the [[tmmrc|TMMRC]]. God is kin continuity: the dead stay with you through matter. Endocannibalism at funerals; ossuary garments made from bone, hair and cybernetics. The molecular bond is a spiritual bond."
+     ]
+    ],
     [
      "Beliefs",
      [
@@ -1214,6 +1299,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "The intense wing of the [[mortuary-cult|Mortuary Cult]], regional to the [[thornwatch]]. They extend communion from the dead to the living by eating vat-grown tissue donated by family members, daily. Kahlun's family are Necrophages."
+     ]
+    ],
+    [
      "So far",
      [
       "A Mortuary minority, described respectfully, and at arm's length, in school texts.",
@@ -1233,6 +1324,12 @@ window.BIBLE = {
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "One of the five traditions of the [[tmmrc|TMMRC]]. God is truth born from friction and argument. It is the operating system for marriages, mediation, education and grief."
+     ]
+    ],
     [
      "So far",
      [
@@ -1499,17 +1596,25 @@ window.BIBLE = {
   },
   {
    "id": "thunder-temple",
-   "cat": "culture",
-   "name": "Thunder Temple",
-   "tag": "Martian music",
+   "cat": "faiths",
+   "name": "Thunder and Lightning Temples",
+   "tag": "Martian storm-worship",
    "src": [
     "kahlun-1"
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "One of the five traditions of the [[tmmrc|TMMRC]]. God manifests at the moment of sensory overwhelm: storm-worship, holy raves, warrior-bard priests."
+     ]
+    ],
+    [
      "So far",
      [
-      "Gabr'yel claims she taught a drone to play \"a Thunder Temple beat.\""
+      "Gabr'yel claims she taught a drone to play \"a Thunder Temple beat.\"",
+      "Belindrama swears by \"Thundering-God\".",
+      "Note: [[ramba]]'s sensory overload is the state this tradition calls holy, and for him it is torment."
      ]
     ]
    ]
@@ -2182,6 +2287,12 @@ window.BIBLE = {
   },
   {
    "sev": "check",
+   "title": "\"God\" without an epithet",
+   "where": "Kahlun I · several places",
+   "text": "If Martians never say plain \"God\": \"thank God\" (the pendant, 05:55), \"a small renewable promise to God\" (05:30), \"between you and God\" (Belindrama, 07:20 section), \"building God from the couch\" (11:00). \"God is being built\" may be fine as a statement of doctrine. Epithets such as \"thank God-in-the-Blood\" would add flavour."
+  },
+  {
+   "sev": "check",
    "title": "141 days or 41 days?",
    "where": "Interlude · 10:00",
    "text": "Tavi \"drummed on everything… the whole forty-one days,\" but elsewhere he lived in her ear for 141 days."
@@ -2237,7 +2348,6 @@ window.BIBLE = {
  ],
  "questions": [
   "Why didn't the Six Gods act against the Dreamer: indifference, inability, or a choice?",
-  "How do God-Shall-Be-Built, the Mortuary Cult and the Sadistic-Dialectic fit together: one faith with schools, or separate traditions that overlap?",
   "Is the Dreamer one AI-god or a kind of thing? Is Grafin's itchy hair shirt a common Tube habit since the Pseudea, or older?",
   "Which Venusian house was Tavi a page of? Is it connected to Voli's house?",
   "Will Dramari be taken for a Rejuvenant, now that she's an adult in a child's body in the Tube?",
@@ -2252,6 +2362,8 @@ window.BIBLE = {
   "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
   "How old are Tramso, Graugrey, Gratiustar and Juliandra?",
-  "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately."
+  "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
+  "When Ramba says \"a Temple funeral\", which tradition's temple does he mean?",
+  "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?"
  ]
 };
