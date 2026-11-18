@@ -390,7 +390,8 @@ window.BIBLE = {
      "From the author",
      [
       "Like many [[necrophages]], Kahlun wears a very large amount of bone. To Martians, a kid in full regalia is adorable: devout, grieving, and loved.",
-      "He hasn't done his animal pilgrimage yet."
+      "He hasn't done his animal pilgrimage yet.",
+      "His family are Ritualist and Gourmand [[necrophages]], and lean toward [[blood-iron-soil|Blood-Iron-Soil]]."
      ]
     ],
     [
@@ -624,6 +625,12 @@ window.BIBLE = {
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "His last name, Senyar'tok, marks him as a descendant of the [[senyara|Senyara]], a Sayyid-like status. His family are not [[senyarists]]."
+     ]
+    ],
     [
      "Before",
      [
@@ -882,6 +889,12 @@ window.BIBLE = {
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Population about 1.1 billion."
+     ]
+    ],
     [
      "So far",
      [
@@ -1365,7 +1378,8 @@ window.BIBLE = {
      "From the author",
      [
       "The intense wing of the [[mortuary-cult|Mortuary Cult]], regional to the [[thornwatch]]. They extend communion from the dead to the living by eating vat-grown tissue donated by family members, daily. Kahlun's family are Necrophages.",
-      "Two subtypes, which can overlap. Ritualists are super-devout Mortuary Cultists, seen by most Martians as a bit zealous. Gourmands do it for the taste and are seen as decadent and weird."
+      "Two subtypes, which can overlap. Ritualists are super-devout Mortuary Cultists, seen by most Martians as a bit zealous. Gourmands do it for the taste and are seen as decadent and weird.",
+      "Kahlun's family are both Ritualists and Gourmands."
      ]
     ],
     [
@@ -1410,7 +1424,7 @@ window.BIBLE = {
    "id": "senyara",
    "cat": "faiths",
    "name": "The Senyara",
-   "tag": "\"Our Queen\"",
+   "tag": "The Martian \"queen\" · born 1994",
    "src": [
     "kahlun-1"
    ],
@@ -1418,7 +1432,12 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "A living person: the Martian Queen. Some worship her as a messiah or as God (see [[senyarists]]), which makes her very uncomfortable."
+      "A living person: the Martian Queen. Some worship her as a messiah or as God (see [[senyarists]]), which makes her very uncomfortable.",
+      "The title derives from \"Señora\". She was one of the first successful human mind uploads, in the 2080s, and was born in 1994: about 14,000 years old.",
+      "Her memory of her early years is \"Swiss cheese\". In one scene she believes Jurassic Park actually happened, having conflated it with a real 2300s incident in which a cloned mammoth born to an elephant in a zoo killed someone who fell into its enclosure.",
+      "She had only two children, each of whom had one child. Even so, after 14,000 years her collateral descendants number a few hundred thousand on a planet of about 1.1 billion.",
+      "Her descendants carry an extra surname at the end of their name, Senyar'tok (\"Senyara-ing\", \"of the Senyara\"). The status is similar to being a Sayyid in Islamic society.",
+      "Her saying \"Fake it till you make it\", quoted by Belindrama, is a 20th-century idiom: hers."
      ]
     ],
     [
@@ -1515,7 +1534,8 @@ window.BIBLE = {
      [
       "Advocates a stronger legal government for Mars with more oversight of communities, especially in military matters, up to a professional military.",
       "By our standards, left-of-centre statists; by Martian standards, authoritarian. Seen as alarmist, a slippery slope to authoritarianism.",
-      "Common among Emergency Services and militia veterans and people who lived through [[jovian-raids|Jovian raids]]."
+      "Common among Emergency Services and militia veterans and people who lived through [[jovian-raids|Jovian raids]].",
+      "Kahlun's family (Belindrama, Gratiustar, Juliandra) lean toward it."
      ]
     ]
    ]
@@ -2400,6 +2420,14 @@ window.BIBLE = {
  ],
  "timeline": [
   {
+   "when": "1994",
+   "text": "The [[senyara|Senyara]] is born."
+  },
+  {
+   "when": "2080s",
+   "text": "The Senyara becomes one of the first successful human mind uploads."
+  },
+  {
    "when": "about 15873",
    "text": "[[tramso]] and [[graugrey]] are born in the same lottery cohort."
   },
@@ -2587,7 +2615,6 @@ window.BIBLE = {
   "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six syndicates, it probably isn't a syndicate.)",
   "What does the L in KLB stand for?",
   "Is the Electric Saints the Martian religious boy band Kahlun loves?",
-  "Who is the Senyara, and how do Senyarists relate to her?",
   "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
   "How old are Gratiustar and Juliandra?",
@@ -2602,8 +2629,7 @@ window.BIBLE = {
   "Was Dekker's mother in Tramso and Graugrey's cohort?",
   "Are natborn children like Pella born on the lottery schedule too, so they join a cohort?",
   "What is Hannet's mother's name, and what kind of wolf body does she live in?",
-  "Is Kahlun's family Ritualist Necrophage (Belindrama is a ritualist)?",
-  "Do any of Kahlun's moms lean toward Blood-Iron-Soil (Juliandra, Emergency Services; Gratiustar, Space Fleet)?",
-  "Does Ramba's family's pride in the Senyara edge into Senyarism? Is Elder Yelina one?"
+  "Is Elder Yelina a Senyarist?",
+  "What is the Senyara's name? Does she live in a body or in simulation, and what does being Mars's \"queen\" involve?"
  ]
 };
