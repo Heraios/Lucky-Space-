@@ -139,7 +139,8 @@ window.BIBLE = {
      [
       "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen.",
       "His marriage to Graugrey is a cross-syndicate marriage, which is subversive on Pluto.",
-      "Tramso and Graugrey are the same age, from the same lottery cohort: they have known each other since childhood, as Grafin knows his classmates. Tramso knew Graugrey before and after he became a Rejuvenant."
+      "Tramso and Graugrey are the same age, from the same lottery cohort: they have known each other since childhood, as Grafin knows his classmates. Tramso knew Graugrey before and after he became a Rejuvenant.",
+      "Age 135 in 16008 (born about 15873), four lottery cohorts before Grafin's."
      ]
     ],
     [
@@ -186,7 +187,8 @@ window.BIBLE = {
       "He chose to become a Rejuvenant as an adult. His armour-grade body is standard for the syndicate.",
       "His god, the [[the-serpent|Serpent]], is a god of agriculture (his work) and of contrariness (his marriage).",
       "He joined because of \"age dysphoria\": he disliked looking like an adult, and feels right in his Rejuvenant body. Whatever he is \"carrying\" is a separate matter.",
-      "Tramso and Graugrey are the same age, from the same lottery cohort: they have known each other since childhood, as Grafin knows his classmates. Tramso knew Graugrey before and after he became a Rejuvenant."
+      "Tramso and Graugrey are the same age, from the same lottery cohort: they have known each other since childhood, as Grafin knows his classmates. Tramso knew Graugrey before and after he became a Rejuvenant.",
+      "Age 135 in 16008 (born about 15873), four lottery cohorts before Grafin's."
      ]
     ],
     [
@@ -1928,7 +1930,7 @@ window.BIBLE = {
       "Held every 31 Standard years. Between lotteries there are no children in The Tube.",
       "Most children are \"assembled from random combinations of genetics and given to a family that wants one.\" Natborn children like [[pella]] carry status.",
       "Run by the [[six-gods|Six Gods]], who are AIs: the gods literally design the children.",
-      "Worked out, not stated: if Grafin's cohort is eleven in 16008 and lotteries come every 31 Standards, earlier cohorts are 42, 73, 104, 135… years old. Graugrey has run his hydroponics bay for 85 years, so the dads are probably 104 or older."
+      "Cohorts in 16008 are 11, 42, 73, 104, 135… years old. Tramso and Graugrey are 135: four cohorts before Grafin's."
      ]
     ]
    ]
@@ -2274,6 +2276,14 @@ window.BIBLE = {
  ],
  "timeline": [
   {
+   "when": "about 15873",
+   "text": "[[tramso]] and [[graugrey]] are born in the same lottery cohort."
+  },
+  {
+   "when": "about 15923",
+   "text": "Graugrey, about 50, starts managing his hydroponics bay (85 years before Grafin I)."
+  },
+  {
    "when": "about 15957",
    "text": "Kahlun's sisters [[yenna-yamie|Yenna and Yamie]] die, forty years before he is born."
   },
@@ -2456,7 +2466,7 @@ window.BIBLE = {
   "Who is the Senyara, and how do Senyarists relate to her?",
   "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
-  "How old are Tramso and Graugrey (104, or an older cohort)? And Gratiustar and Juliandra?",
+  "How old are Gratiustar and Juliandra?",
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately.",
   "Are Gabr'yel's seven parents on the Eastern concert circuit Thunder Temple musicians?",
   "How does becoming a Rejuvenant affect the mind? (\"That's complicated.\")",
