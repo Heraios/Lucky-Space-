@@ -1441,7 +1441,7 @@ window.BIBLE = {
      "From the author",
      [
       "A living person: the Martian Queen. Some worship her as a messiah or as God (see [[senyarists]]), which makes her very uncomfortable.",
-      "The title derives from \"Señora\". She was one of the first successful human mind uploads, in the 2080s, and was born in 1994: about 14,000 years old.",
+      "The title derives from \"Señora\". She was one of the first successful human mind uploads, in 2084, and was born in 1994: about 14,000 years old.",
       "Her memory of her early years is \"Swiss cheese\". In one scene she believes Jurassic Park actually happened, having conflated it with a real 2300s incident in which a cloned mammoth born to an elephant in a zoo killed someone who fell into its enclosure.",
       "She had only two children, each of whom had one child. Even so, after 14,000 years her collateral descendants number a few hundred thousand on a planet of about 1.1 billion.",
       "Her descendants carry an extra surname at the end of their name, Senyar'tok (\"Senyara-ing\", \"of the Senyara\"). The status is similar to being a Sayyid in Islamic society.",
@@ -2478,10 +2478,6 @@ window.BIBLE = {
   {
    "when": "1994",
    "text": "The [[senyara|Senyara]] is born."
-  },
-  {
-   "when": "2080s",
-   "text": "The Senyara becomes one of the first successful human mind uploads."
   },
   {
    "when": "2084",
