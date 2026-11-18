@@ -45,7 +45,7 @@ window.BIBLE = {
   },
   {
    "id": "faiths",
-   "label": "Gods, faiths & orders"
+   "label": "Gods, faiths & syndicates"
   },
   {
    "id": "culture",
@@ -114,7 +114,7 @@ window.BIBLE = {
       "Best friend at school: [[herelty]]. Penpal: [[kahlun]], since both were nine, through the [[il-exchange|IL Exchange]].",
       "Has written to Kahlun about [[miran|Counselor Miran]] for ten or eleven months, and about [[pella]] and [[dekker]] for as long.",
       "Offers to leave a token for Kahlun's father [[voli]] at the [[dead-groves|Dead Groves]] next time he visits with his dads.",
-      "Is considering joining the [[hounds]]."
+      "Is considering joining the [[hounds]]. Since his dads are a cross-syndicate couple, picking a syndicate means picking a side of his own family."
      ]
     ],
     [
@@ -137,7 +137,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen."
+      "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen.",
+      "His marriage to Graugrey is a cross-syndicate marriage, which is subversive on Pluto."
      ]
     ],
     [
@@ -179,7 +180,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen."
+      "On screen, their affection is only what any married parents would show in front of their child: a peck on the cheek or forehead, holding hands, snuggling on the couch, hugs, saying \"I love you,\" making dinner together. The rest of a long marriage exists off screen.",
+      "His marriage to Tramso is a cross-syndicate marriage, which is subversive on Pluto; one involving a Rejuvenant draws the worst reactions."
      ]
     ],
     [
@@ -951,7 +953,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "The Six Gods are the six worlds of the Pluto system: Pluto, Charon, Styx, Nix, Kerebros and Hydra. (The real moon is spelled Kerberos; Kerebros may be an in-world spelling. To confirm.)"
+      "The Six Gods are the six worlds of the Pluto system: Pluto, Charon, Styx, Nix, Kerebros and Hydra. (The real moon is spelled Kerberos; Kerebros may be an in-world spelling. To confirm.)",
+      "Each god has a syndicate: Furies, Shades, Oathbound, Provisioners, Rejuvenants, Hounds. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive."
      ]
     ],
     [
@@ -964,9 +967,9 @@ window.BIBLE = {
      ]
     ],
     [
-     "Orders seen",
+     "Syndicates",
      [
-      "[[furies]] · [[shades]] · [[oathbound]] · [[provisioners]] · [[rejuvenants]] · [[hounds]]. Six gods and six orders. Which god each belongs to isn't stated yet; see the questions on the overview page for a proposed pairing."
+      "[[furies]] · [[shades]] · [[oathbound]] · [[provisioners]] · [[rejuvenants]] · [[hounds]]. Six gods and six syndicates. Which god each syndicate belongs to isn't stated yet; see the questions on the overview page for a proposed pairing."
      ]
     ]
    ]
@@ -993,7 +996,7 @@ window.BIBLE = {
    "id": "furies",
    "cat": "faiths",
    "name": "Furies",
-   "tag": "Order",
+   "tag": "Syndicate",
    "src": [
     "grafin-1"
    ],
@@ -1010,7 +1013,7 @@ window.BIBLE = {
    "id": "shades",
    "cat": "faiths",
    "name": "Shades",
-   "tag": "Order",
+   "tag": "Syndicate",
    "src": [
     "grafin-1"
    ],
@@ -1027,7 +1030,7 @@ window.BIBLE = {
    "id": "oathbound",
    "cat": "faiths",
    "name": "Oathbound",
-   "tag": "Order",
+   "tag": "Syndicate",
    "src": [
     "grafin-1",
     "interlude-1"
@@ -1045,7 +1048,7 @@ window.BIBLE = {
    "id": "provisioners",
    "cat": "faiths",
    "name": "Provisioners",
-   "tag": "Order",
+   "tag": "Syndicate",
    "src": [
     "grafin-1",
     "interlude-1"
@@ -1063,7 +1066,7 @@ window.BIBLE = {
    "id": "rejuvenants",
    "cat": "faiths",
    "name": "Rejuvenants",
-   "tag": "Order",
+   "tag": "Syndicate",
    "src": [
     "grafin-1"
    ],
@@ -1071,14 +1074,15 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "All Rejuvenants have a childlike presentation. It's a defining trait of the order, not something specific to Graugrey."
+      "All Rejuvenants have a childlike presentation. It's a defining trait of the syndicate, not something specific to Graugrey.",
+      "A cross-syndicate couple involving a Rejuvenant is seen as the \"worst\" kind, because the Rejuvenant body invites the ugliest gossip. That is what Dekker's mother's \"toy\" line is doing."
      ]
     ],
     [
      "So far",
      [
       "Member: [[graugrey]]. Rejuvenant-cut clothes are made for small bodies: Graugrey's spare shirts (pale blue flowers on grey) fit eleven-year-old Grafin.",
-      "Rejuvenant–Hound couples draw gossip: \"Hound Tramso's toy,\" which Grafin knows is a bad word. Since every Rejuvenant looks like a child, this is prejudice about the order and the pairing, not about Graugrey alone.",
+      "Rejuvenant–Hound couples draw gossip: \"Hound Tramso's toy,\" which Grafin knows is a bad word. Since every Rejuvenant looks like a child, this is prejudice about the syndicate and the pairing, not about Graugrey alone.",
       "Dekker mocks Graugrey for looking like a kid *and being a dad*, which suggests Rejuvenants raising children is unusual."
      ]
     ]
@@ -1088,7 +1092,7 @@ window.BIBLE = {
    "id": "hounds",
    "cat": "faiths",
    "name": "Hounds",
-   "tag": "Order · soldiers",
+   "tag": "Syndicate · soldiers",
    "src": [
     "grafin-1"
    ],
@@ -1097,7 +1101,8 @@ window.BIBLE = {
      "So far",
      [
       "Member: [[tramso]]. Wool uniforms with real dog fur collars; dog-head earring studs; a Hound station.",
-      "[[grafin]] wears a dog-head stud and a dog-fur collar and is considering joining: \"He hasn't picked yet.\""
+      "[[grafin]] wears a dog-head stud and a dog-fur collar and is considering joining: \"He hasn't picked yet.\"",
+      "Expected to marry other Hounds. [[tramso]]'s marriage to a Rejuvenant breaks that rule."
      ]
     ]
    ]
@@ -2169,9 +2174,9 @@ window.BIBLE = {
   "Will Dramari's story cross Grafin's? Counselors Ferun and Miran are both Oathbound and both write everything down.",
   "What is Quiet-Temple, and is Herelty in care?",
   "Is Graugrey's armour-grade body normal for Rejuvenants, or from his own history (with Tramso, the war, the New Fire)?",
-  "Proposed pairing of gods and orders, from the myths behind the names. Which are right? Pluto (Plouton, giver of riches) → Provisioners · Charon (ferryman of the dead) → Shades · Styx (the river of oaths) → Oathbound · Nix (Night, mother of the Furies in Aeschylus) → Furies · Kerebros (the underworld's dog) → Hounds · Hydra (regrows its heads) → Rejuvenants.",
+  "Proposed pairing of gods and syndicates, from the myths behind the names. Which are right? Pluto (Plouton, giver of riches) → Provisioners · Charon (ferryman of the dead) → Shades · Styx (the river of oaths) → Oathbound · Nix (Night, mother of the Furies in Aeschylus) → Furies · Kerebros (the underworld's dog) → Hounds · Hydra (regrows its heads) → Rejuvenants.",
   "Is \"Kerebros\" the in-world spelling, or should it be Kerberos?",
-  "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six orders, it probably isn't an order.)",
+  "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six syndicates, it probably isn't a syndicate.)",
   "What does the L in KLB stand for?",
   "Is the Electric Saints the Martian religious boy band Kahlun loves?",
   "How do God-Shall-Be-Built, the Mortuary Cult and the Sadistic-Dialectic fit together: one religion with schools, or separate ones?",
