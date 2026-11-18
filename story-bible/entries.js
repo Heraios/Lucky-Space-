@@ -24,6 +24,13 @@ window.BIBLE = {
    "pov": "dramari",
    "when": "5 January 16008 · Recovery Day 13 · 112 days after the transfer",
    "summary": "In a recovery facility on the Charon end of [[the-tube|The Tube]], [[dramari]], a Martian woman living in the body of the nine-year-old Venusian page [[tavi]], finally finds his real smile in the mirror. At her review she refuses the clone of her own body that [[halde|Physician Halde]] has ready, and [[ferun|Counselor Ferun]] won't sign her discharge."
+  },
+  {
+   "id": "senyara-vignette",
+   "title": "Vignette: the Senyara",
+   "pov": "senyara",
+   "when": "undated · placement in the book to be decided",
+   "summary": "Ellanore, the [[senyara|Senyara]], sits alone in the palace touching the bone beads of her shawl: descendants, chosen grandchildren and friends she has outlived over fourteen thousand years. She can't remember being young, or one of the people she wears."
   }
  ],
  "categories": [
@@ -1423,10 +1430,11 @@ window.BIBLE = {
   {
    "id": "senyara",
    "cat": "faiths",
-   "name": "The Senyara",
+   "name": "The Senyara (Ellanore)",
    "tag": "The Martian \"queen\" · born 1994",
    "src": [
-    "kahlun-1"
+    "kahlun-1",
+    "senyara-vignette"
    ],
    "sections": [
     [
@@ -1446,6 +1454,54 @@ window.BIBLE = {
       "Kahlun calls her \"our Queen.\" [[ramba]] is her eighty-four-times great-grandson.",
       "Quoted by Belindrama: \"Fake it, till you make it.\"",
       "School texts list Senyarists as a minority subculture."
+     ]
+    ],
+    [
+     "Vignette",
+     [
+      "Her name is Ellanore. From Tennessee; a trans woman who transitioned; uploaded in 2084. Lives in a palace. Her current body looks mid-forties; anyone who talks to her for a moment knows it isn't.",
+      "Remembers her early life only as facts, not feelings: \"When I was young. This sort of thing scared us… Search me if I remember why.\"",
+      "Wears an ossuary shawl of bone beads, ribs, finger bones and hair from descendants, chosen grandchildren (people who call her grandmother because she was grandmother to their grandmother's grandmother), ministers, guards, officials and friends. It grows heavier every century.",
+      "Beads include Terani, her great-great-granddaughter, Minister of Ecological Integration in the 8400s (they argued about water allocation for three centuries), and Vorin, of the Advisory Council on Digital Ethics in the 11000s (\"He made me laugh\"). One bead she can no longer name; she keeps it anyway.",
+      "Beloved, worshipped by the [[senyarists]], never alone, but \"no one remembers with her.\" Only she remembers the Dying 800, Earth's death and humanity's rebuilding from fewer than 300,000 survivors.",
+      "Her role in government is symbolic. Says plain \"God\" (\"God help her\"), unlike Martians born later."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "herclawun-jove",
+   "cat": "mars-people",
+   "name": "Herclawun Jove",
+   "tag": "9,400 years old · the \"5000+ club\"",
+   "src": [
+    "senyara-vignette"
+   ],
+   "sections": [
+    [
+     "So far",
+     [
+      "About 9,400 years old (born about 6600), a member of the \"5000+ club\". The person who comes closest to remembering with the [[senyara|Senyara]], though even he didn't see the beginning."
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "earth-history",
+   "cat": "culture",
+   "name": "Earth and the Dying 800",
+   "tag": "Deep history",
+   "src": [
+    "senyara-vignette"
+   ],
+   "sections": [
+    [
+     "So far",
+     [
+      "\"Earth is Dead. Mars Remains.\"",
+      "The Dying 800: an event the [[senyara|Senyara]] lived through, connected with Earth's death.",
+      "Humanity rebuilt itself from fewer than 300,000 survivors into billions.",
+      "The Martian government is mostly advisory: ministers and councils (Ecological Integration, Digital Ethics) come and go over millennia."
      ]
     ]
    ]
@@ -2428,6 +2484,22 @@ window.BIBLE = {
    "text": "The Senyara becomes one of the first successful human mind uploads."
   },
   {
+   "when": "2084",
+   "text": "Ellanore, the Senyara, uploads (at about 90)."
+  },
+  {
+   "when": "about 6600",
+   "text": "[[herclawun-jove|Herclawun Jove]] is born."
+  },
+  {
+   "when": "8400s",
+   "text": "Terani, the Senyara's great-great-granddaughter, is Minister of Ecological Integration."
+  },
+  {
+   "when": "11000s",
+   "text": "Vorin sits on the Advisory Council on Digital Ethics."
+  },
+  {
    "when": "about 15873",
    "text": "[[tramso]] and [[graugrey]] are born in the same lottery cohort."
   },
@@ -2551,6 +2623,24 @@ window.BIBLE = {
   },
   {
    "sev": "check",
+   "title": "Young in the \"middle 21st century\"?",
+   "where": "Senyara vignette",
+   "text": "Born 1994, she would have been young in the 2000s and 2010s, and in her fifties by 2050. Use \"early 21st century\", or move her birth year later. (Uploaded 2084 means she uploaded at about 90.)"
+  },
+  {
+   "sev": "minor",
+   "title": "Senyar'tok or Senyara'tok?",
+   "where": "Senyara vignette vs Kahlun I",
+   "text": "The vignette spells it Senyara'tok; Kahlun I has Ramba Grazayen Senyar'tok."
+  },
+  {
+   "sev": "question",
+   "title": "The Senyara says plain \"God\"",
+   "where": "Senyara vignette",
+   "text": "\"God help her\" breaks the Martian epithet rule. Works well if deliberate: she predates the convention."
+  },
+  {
+   "sev": "check",
    "title": "141 days or 41 days?",
    "where": "Interlude · 10:00",
    "text": "Tavi \"drummed on everything… the whole forty-one days,\" but elsewhere he lived in her ear for 141 days."
@@ -2630,6 +2720,9 @@ window.BIBLE = {
   "Are natborn children like Pella born on the lottery schedule too, so they join a cohort?",
   "What is Hannet's mother's name, and what kind of wolf body does she live in?",
   "Is Elder Yelina a Senyarist?",
-  "What is the Senyara's name? Does she live in a body or in simulation, and what does being Mars's \"queen\" involve?"
+  "What was the Dying 800, and how did Earth die?",
+  "Is Herclawun Jove related to Marcus Jove (the New Fire) or to the Jovians?",
+  "Where does the Senyara vignette go in the book?",
+  "What does being Mars's \"queen\" involve day to day, given her role is symbolic?"
  ]
 };
