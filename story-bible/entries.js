@@ -956,7 +956,9 @@ window.BIBLE = {
       "The Six Gods are AIs. They run the Tube: Climate Control (in turns, \"when they get bored\") and the genetic lottery that designs its children.",
       "The Six Gods are the six worlds of the Pluto system: Pluto, Charon, Styx, Nix, Kerebros and Hydra. (The real moon is spelled Kerberos; Kerebros may be an in-world spelling. To confirm.)",
       "The gods and their syndicates: the Father of Riches (Pluto) → [[furies]] · the Lady of Night (Nix) → [[shades]] · the Ferryman (Charon) → [[provisioners]] · the Oathkeeper (Styx) → [[oathbound]] · the Guard Dog (Kerebros) → [[hounds]] · the Serpent (Hydra) → [[rejuvenants]].",
-      "Each god has a syndicate. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive."
+      "Each god has a syndicate. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive.",
+      "The gods speak to people directly through simulation: a god's Mysteries are simulations. Initiates sit at the high table in the school cafeteria.",
+      "The Six Gods did not act against [[the-dreamer|the Dreamer]] when the [[pseudea|Pseudea]] approached. [[tavi]] and [[dramari]] saved the Tube."
      ]
     ],
     [
@@ -1059,7 +1061,8 @@ window.BIBLE = {
     [
      "From the author",
      [
-      "Their god is the Oathkeeper (Styx)."
+      "Their god is the Oathkeeper (Styx).",
+      "Their god's system is [[entity-judgment|ENTITY-Judgment]], which sends official notices such as counselors' summonses."
      ]
     ],
     [
@@ -1150,11 +1153,17 @@ window.BIBLE = {
    "id": "god-builders",
    "cat": "faiths",
    "name": "God-Shall-Be-Built",
-   "tag": "Martian faith: God is being built",
+   "tag": "Martian faith: a God that doesn't exist yet",
    "src": [
     "kahlun-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "God-Shall-Be-Built is the Abrahamic God as imagined through a radically open process theology: a God that doesn't exist yet, and is being built. Not an AI."
+     ]
+    ],
     [
      "So far",
      [
@@ -1554,6 +1563,12 @@ window.BIBLE = {
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "Simulation is also how the [[six-gods|Six Gods]] speak to people: a god's Mysteries are simulations. [[ramba]] spent about 400 days in one after his death."
+     ]
+    ],
+    [
      "So far",
      [
       "Children can kill people who were cruel to them, in simulation, then must talk it through with a Counselor."
@@ -1588,6 +1603,12 @@ window.BIBLE = {
     "interlude-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "The [[six-gods|Six Gods]] did not fight it when the Pseudea approached the Tube."
+     ]
+    ],
     [
      "What it is",
      [
@@ -1817,16 +1838,21 @@ window.BIBLE = {
    "id": "entity-judgment",
    "cat": "tech",
    "name": "ENTITY-Judgment",
-   "tag": "Sends official notices",
+   "tag": "The Oathkeeper's system",
    "src": [
     "grafin-1"
    ],
    "sections": [
     [
+     "From the author",
+     [
+      "ENTITY-Judgment belongs to the Oathkeeper (Styx), god of the [[oathbound]]. The summons to Counselor Miran, herself Oathbound, comes from her own god."
+     ]
+    ],
+    [
      "So far",
      [
-      "Sends the summons to Counselor Miran's office to Grafin's tablet.",
-      "Possibly a system of one of the [[six-gods|Six Gods]], which are AIs. Not yet stated."
+      "Sends the summons to Counselor Miran's office to Grafin's tablet."
      ]
     ]
    ]
@@ -2210,10 +2236,8 @@ window.BIBLE = {
   }
  ],
  "questions": [
-  "Do the Six Gods speak to people directly? What does being \"initiated into a god's Mysteries\" involve?",
-  "Is ENTITY-Judgment one of the gods (the Oathkeeper?), or a separate system?",
-  "Did the Six Gods fight the Dreamer when the Pseudea approached? Do they guard against it?",
-  "Is the Martian God-Shall-Be-Built an AI being built on purpose?",
+  "Why didn't the Six Gods act against the Dreamer: indifference, inability, or a choice?",
+  "How do God-Shall-Be-Built, the Mortuary Cult and the Sadistic-Dialectic fit together: one faith with schools, or separate traditions that overlap?",
   "Is the Dreamer one AI-god or a kind of thing? Is Grafin's itchy hair shirt a common Tube habit since the Pseudea, or older?",
   "Which Venusian house was Tavi a page of? Is it connected to Voli's house?",
   "Will Dramari be taken for a Rejuvenant, now that she's an adult in a child's body in the Tube?",
@@ -2224,7 +2248,6 @@ window.BIBLE = {
   "Is \"Katabasii\" a family name, a title, or something else? (With six gods and six syndicates, it probably isn't a syndicate.)",
   "What does the L in KLB stand for?",
   "Is the Electric Saints the Martian religious boy band Kahlun loves?",
-  "How do God-Shall-Be-Built, the Mortuary Cult and the Sadistic-Dialectic fit together: one religion with schools, or separate ones?",
   "Who is the Senyara, and how do Senyarists relate to her?",
   "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
