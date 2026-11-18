@@ -945,7 +945,7 @@ window.BIBLE = {
    "id": "six-gods",
    "cat": "faiths",
    "name": "The Six Gods",
-   "tag": "The Tube's gods",
+   "tag": "The Tube's gods: six AIs",
    "src": [
     "grafin-1"
    ],
@@ -953,6 +953,7 @@ window.BIBLE = {
     [
      "From the author",
      [
+      "The Six Gods are AIs. They run the Tube: Climate Control (in turns, \"when they get bored\") and the genetic lottery that designs its children.",
       "The Six Gods are the six worlds of the Pluto system: Pluto, Charon, Styx, Nix, Kerebros and Hydra. (The real moon is spelled Kerberos; Kerebros may be an in-world spelling. To confirm.)",
       "The gods and their syndicates: the Father of Riches (Pluto) → [[furies]] · the Lady of Night (Nix) → [[shades]] · the Ferryman (Charon) → [[provisioners]] · the Oathkeeper (Styx) → [[oathbound]] · the Guard Dog (Kerebros) → [[hounds]] · the Serpent (Hydra) → [[rejuvenants]].",
       "Each god has a syndicate. People are expected to marry within their own syndicate: Rejuvenants marry Rejuvenants, Hounds marry Hounds, and so on. Cross-syndicate relationships are subversive."
@@ -1590,6 +1591,7 @@ window.BIBLE = {
     [
      "What it is",
      [
+      "The same kind of being as the [[six-gods|Six Gods]], which are AIs, but predatory.",
       "An AI-god. On the [[pseudea|Pseudea]] it took over nearly every system and \"ate the crew one dream at a time.\" Its victims become smiling puppets that stand and wait for it to tell them what to do.",
       "Counselor [[ferun]]: \"The Dreamer feeds on wanting. It finds what a person desires and takes hold of that desire. It amplifies it and uses it to steer them.\" People die \"wanting one thing so completely that there was no room left for them to be people.\"",
       "Only a handful of documented survivors exist in the whole Solar System, most because it couldn't reach them. Long, conscious exposure is linked to fixation: \"a single attachment that can't be questioned.\"",
@@ -1726,7 +1728,8 @@ window.BIBLE = {
      "So far",
      [
       "Held every 31 Standard years. Between lotteries there are no children in The Tube.",
-      "Most children are \"assembled from random combinations of genetics and given to a family that wants one.\" Natborn children like [[pella]] carry status."
+      "Most children are \"assembled from random combinations of genetics and given to a family that wants one.\" Natborn children like [[pella]] carry status.",
+      "Run by the [[six-gods|Six Gods]], who are AIs: the gods literally design the children."
      ]
     ]
    ]
@@ -1822,7 +1825,8 @@ window.BIBLE = {
     [
      "So far",
      [
-      "Sends the summons to Counselor Miran's office to Grafin's tablet."
+      "Sends the summons to Counselor Miran's office to Grafin's tablet.",
+      "Possibly a system of one of the [[six-gods|Six Gods]], which are AIs. Not yet stated."
      ]
     ]
    ]
@@ -2206,6 +2210,10 @@ window.BIBLE = {
   }
  ],
  "questions": [
+  "Do the Six Gods speak to people directly? What does being \"initiated into a god's Mysteries\" involve?",
+  "Is ENTITY-Judgment one of the gods (the Oathkeeper?), or a separate system?",
+  "Did the Six Gods fight the Dreamer when the Pseudea approached? Do they guard against it?",
+  "Is the Martian God-Shall-Be-Built an AI being built on purpose?",
   "Is the Dreamer one AI-god or a kind of thing? Is Grafin's itchy hair shirt a common Tube habit since the Pseudea, or older?",
   "Which Venusian house was Tavi a page of? Is it connected to Voli's house?",
   "Will Dramari be taken for a Rejuvenant, now that she's an adult in a child's body in the Tube?",
@@ -2220,7 +2228,6 @@ window.BIBLE = {
   "Who is the Senyara, and how do Senyarists relate to her?",
   "Are the Jovian raiders connected to the New Fire (Marcus Jove) and to Grafin's \"Jovian Look\"? Did Tramso fight in the same war?",
   "Is the Tube's clock about 9 hours behind Earth time? That's what makes the message timing in both chapters work.",
-  "What is ENTITY-Judgment?",
   "How old are Tramso, Graugrey, Gratiustar and Juliandra?",
   "Where is Kahlun's village exactly? A longitude lets the Penpal Clock show his local time accurately."
  ]
