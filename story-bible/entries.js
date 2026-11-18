@@ -1535,7 +1535,8 @@ window.BIBLE = {
       "Took his surname as a divine sign that he was God: Jove, Jupiter, Zeus. Believed in \"the evils of free will\" and set out to replace humanity with copies of the one person he trusted: himself. Later a Transhuman God-King. Now dead.",
       "\"Cancers were cells that refuse to cooperate… I cured cancer. Now I will cure humanity.\"",
       "\"I do not hate humanity. I am humanity's perfected form. When you are all me, you will understand.\"",
-      "\"If God is real, God is alone, the only consciousness that truly exists… I will make God real by becoming the only mind.\""
+      "\"If God is real, God is alone, the only consciousness that truly exists… I will make God real by becoming the only mind.\"",
+      "A Genghis Khan effect: about 15% of the human population is genetically descended from [[marcus-jove|Marcus Jove]], not counting the Jovians themselves, through defectors and their descendants."
      ]
     ],
     [
@@ -1563,7 +1564,8 @@ window.BIBLE = {
       "No agent runs it. Jove is dead; the Princes are themselves indoctrinated slaves; the AI copies of Jove are stuck in the 11000s. The apparatus runs on momentum. Every Jovian is a person trapped by it.",
       "Economically pointless as slavery, but the Jovian moons and Jupiter's energy give it real resource autarky. Raiding for slaves is the point.",
       "Castes (all clones, spliced with fresh genetic material from abductees): Princes, clones of Marcus himself · Iron-Blooded, clones of his four loyal sons · Overseers, clones of his loyal wife · \"Citizens\", clones of his followers from his Transhuman God-King era · Conditioned, captives from elsewhere indoctrinated as saboteurs · Fast Batch and Slow Batch, clones of his disloyal sons and wife used as shock troops.",
-      "Every Jovian carries an AI copy of Jove in their head as an artificial conscience."
+      "Every Jovian carries an AI copy of Jove in their head as an artificial conscience.",
+      "A Genghis Khan effect: about 15% of the human population is genetically descended from [[marcus-jove|Marcus Jove]], not counting the Jovians themselves, through defectors and their descendants."
      ]
     ],
     [
@@ -2015,6 +2017,12 @@ window.BIBLE = {
     "grafin-1"
    ],
    "sections": [
+    [
+     "From the author",
+     [
+      "Likely Marcus Jove's features, common because about 15% of humanity descends from him through defectors. It explains why lottery-assembled Grafin has it."
+     ]
+    ],
     [
      "So far",
      [
@@ -2797,9 +2805,9 @@ window.BIBLE = {
   "What was the Dying 800, and how did Earth die?",
   "Where does the Senyara vignette go in the book?",
   "What does being Mars's \"queen\" involve day to day, given her role is symbolic?",
-  "Is the Jovian Look Marcus Jove's face? If so, why does Grafin have it: does the Tube's lottery use Jovian genetic material?",
   "Which caste was Merschal's father?",
   "Is Herclawun Jove a former Jovian, a descendant, or unrelated?",
-  "Who did Tramso fight, and when?"
+  "Who did Tramso fight, and when?",
+  "Does the Jovian Look carry any stigma, or is it a neutral, common face?"
  ]
 };
